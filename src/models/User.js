@@ -13,6 +13,26 @@ const userSchema=new Schema(
             type:String,
             requried:false,
         },
+        firstName:{
+            type:String,
+            requried:false,
+        },
+        lastName:{
+            type:String,
+            requried:false,
+        },
+        phoneNumber:{
+            type:String,
+            requried:false,
+        },
+        city:{
+            type:String,
+            requried:false,
+        },
+        address:{
+            type:String,
+            requried:false,
+        },
     },
     {timestamps:true}
 )

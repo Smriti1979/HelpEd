@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import '../../styles/singupPageStyle.css';
+import '../../styles/signInPageStyle.css';
 import {signIn,useSession} from "next-auth/react"
 import { useRouter } from 'next/navigation';
 
@@ -112,7 +112,7 @@ const SignInPage = () => {
         </button>
       </form>
     <div className='text-center text-gray-500'>- OR -</div>
-      <h3 className="text-center text-xl font-bold my-20 text-black">New?<Link className='text-blue-500 hover:underline' href="/">Register Here</Link> </h3>
+      <h3 className="text-center text-xl font-bold my-20 text-black">New?<Link className='text-blue-500 hover:underline' href="/signUp">Register Here</Link> </h3>
     </div>
   );
 };

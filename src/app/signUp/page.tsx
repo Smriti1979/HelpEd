@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { signIn, useSession } from 'next-auth/react';
-import '../styles/singupPageStyle.css';
+import '../../styles/singupPageStyle.css';
 
 const SignupPage = () => {
   const [error, setError] = useState('');
@@ -26,7 +26,6 @@ const SignupPage = () => {
     const city=e.target.city.value;
     const address=e.target.address.value;
 
-console.log(email,password,confirmPassword,firstName,lastName,phoneNumber,city,address)
 
     if (!isValidEmail(email)) {
       setError('Invalid Email address');
@@ -40,32 +39,36 @@ console.log(email,password,confirmPassword,firstName,lastName,phoneNumber,city,a
       setError('Passwords do not match');
       return;
     }
-  }
-  //   try {
-  //     const res = await fetch('api/register', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify({
-  //         email,
-  //         password,
-       
-  //       }),
-        
-  //     });
-  //     if (res.status === 400) {
-  //       setError('Email is already registered');
-  //     }
-  //     if (res.status === 200) {
-  //       setError('');
-  //       router.push('/signIn');
-  //     }
-  //   } catch (error) {
-  //     setError('Error, try again');
-  //     console.log(error);
-  //   }
-  // };
+
+    try {
+      const res = await fetch('api/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          password,
+          firstName,
+          lastName,
+          phoneNumber,
+          city,
+          address,
+        }),
+      
+      });
+      if (res.status === 400) {
+        setError('Email is already registered');
+      }
+      if (res.status === 200) {
+        setError('');
+        router.push('/signIn');
+      }
+    } catch (error) {
+      setError('Error, try again');
+      console.log(error);
+    }
+  };
 
   return (
    < div className="containers mx-auto my-8 p-4 sm:w-4/5 md:w-3/5 lg:w-2/5 xl:w-1/3 bg-white rounded-lg shadow-md">
