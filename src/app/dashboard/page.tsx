@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { useRouter } from 'next/navigation';
 import SignOutButton from '../../components/singout';
+import PathwaysButton from '../../components/pathwayButton';
+
 import { FaEdit } from 'react-icons/fa';
 
 interface Location {
@@ -271,7 +273,7 @@ const Page: React.FC =() => {
   const [age, setAge] = useState<string>('');
   const [level, setLevel] = useState<string>('');
   const router = useRouter();
-  const [bgColor, setBgColor] = useState<string>('linear-gradient(to bottom, rgb(36, 182, 168) 0%,rgb(36, 182, 168)1%, rgb(33, 160, 173) 30%,rgb(9, 181, 235) 100%)');
+  const [bgColor, setBgColor] = useState<string>('linear-gradient(to bottom, rgb(42, 213, 197) 0%,rgb(9, 181, 235)50%');
 
   const [isEditModalOpen, setIsEditModalOpen] = useState<boolean>(false);
   const [selectedStudentId, setSelectedStudentId] = useState<string>('');
@@ -368,7 +370,7 @@ const Page: React.FC =() => {
     <div style={{background: bgColor,marginBottom:"20px",paddingBottom:"1px"}}>
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px' }}>
     <div className='text-4xl text-white ml-20' >helpEd</div>
-    <div style={{ textAlign: 'center', flex: '5' }}>
+    <div style={{ textAlign: 'center', flex: '5',  marginLeft:"4rem"}}>
   {locations.length > 0 && (
    <select
    value={selectedLocationId || ''}
@@ -410,12 +412,12 @@ const Page: React.FC =() => {
   )}
 </div>
 
-
+<PathwaysButton/>
 
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', flex: '1' }}>
     <button
   onClick={openModal}
-  className='mr-12 text-white'
+  className='mr-14 text-white'
   style={{
     transition: 'background-color 0.3s, padding 0.3s',
     backgroundColor: 'rgba(0, 0, 0, 0.1)',
@@ -457,13 +459,36 @@ const Page: React.FC =() => {
     </div>
     <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around' ,marginLeft:24, marginRight:24 }}>
   {students.map((student: { studentId: string; name: string; age: number; level:number }, index: number) => (
-    <div key={student.studentId} className="student-card" style={{ width: '200px', height: '400px', margin: '10px', border: '2px solid black',borderRadius:"5%", boxShadow:"3px 3px 3px black",display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', flex: '0 0 20%', position: 'relative' }}>
+    <div key={student.studentId} className="student-card" style={{ width: '200px', height: '400px', margin: '10px', border: '2px solid black',borderRadius:"5%", boxShadow:"1px 1px 2px rgba(9, 181, 235, 0.6)",display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', flex: '0 0 20%', position: 'relative' }}>
+      <div style={{ position: 'absolute', top: '0px', left: '3px', zIndex: 2, color: 'white', fontSize: '15px', fontWeight: 'bold', }}>
+    {student.level}
+  </div>
+      <img src="/images/icons/star.svg" alt="star" style={{ position: 'absolute', top: '-40px', left: '-40px', zIndex: 1,width:"100px" }} />
+
      <button className="edit-button" style={{ position: 'absolute', top: '10px', right: '10px', background: 'transparent', border: 'none' }}
        onClick={() => openEditModal(student.studentId)}
 >
   <FaEdit />
 </button>
-      <img src="https://via.placeholder.com/150"className="border-gradient" alt="Placeholder" style={{ width: '150px', height: '150px', borderRadius: '50%',boxShadow:"1px 3px black", border:"5px solid rgba(9, 181, 235, 0.6)", marginBottom: 25 }} />
+<div id="cont">
+  <div id="box">
+  <img
+  src="https://via.placeholder.com/150"
+  className="border-gradient"
+  alt="Placeholder"
+  style={{
+    width: '150px',
+    height: '150px',
+    borderRadius: '50%',
+  }}
+/>
+  </div>
+</div>
+
+
+
+
+
       <p>
         <span className="label" style={{ margin: 0 }}>Name:</span>
         <span className="value" style={{ borderBottom: "2px dotted black", marginLeft: 20 }}>{student.name}</span>

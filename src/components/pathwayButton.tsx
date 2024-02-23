@@ -6,20 +6,20 @@ const SignOutButton: React.FC = () => {
   const router = useRouter();
 
   const handleSignOut = async () => {
-    await signOut({ redirect: false, callbackUrl: '/' });
-    router.push('/'); // Redirect to the home page after signing out
+    
+    router.push('/pathways'); 
   };
 
   return (
     <button
       onClick={handleSignOut}
-      className="text-xl text-white"
+      className="text-xl text-white mr-12"
       style={{
         transition: 'background-color 0.3s, padding 0.3s',
         backgroundColor: 'rgba(0, 0, 0, 0.1)',
         padding: '5px 10px',
         border: 'none',
-        marginRight:"2rem"
+      
       }}
       onMouseEnter={(e) => {
         const target = e.target as HTMLButtonElement;
@@ -31,7 +31,7 @@ const SignOutButton: React.FC = () => {
         target.style.padding = '5px 10px';
       }}
     >
-      Sign Out
+      Pathways
     </button>
   );
 };

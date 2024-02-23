@@ -1,19 +1,35 @@
-// dashboard.js
-"use client"
-import React from 'react';
 
+"use client"
+import React, { useState } from 'react';
+import Link from "next/link"
+import SignOutButton from '../../components/singout';
 const Dashboard = () => {
+  const [bgColor, setBgColor] = useState<string>('linear-gradient(to bottom, rgb(42, 213, 197) 0%,rgb(9, 181, 235)50%');
+
   return (
     <div>
-      <header>
-        <h1>PATHWAY</h1>
-        <div className="header-buttons">
-          <button>Add Student</button>
-          <button>Pathway</button>
-        </div>
-      </header>
-
-      
+    <div style={{background: bgColor,marginBottom:"20px",paddingBottom:"1px"}}>
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px' }}>
+    <div className='text-4xl text-white ml-12'style={{
+        transition: 'background-color 0.3s, padding 0.3s',
+        backgroundColor: 'rgba(0, 0, 0, 0)',
+        padding: '5px 10px',
+        border: 'none',
+       
+      }}
+      onMouseEnter={(e) => {
+        const target = e.target as HTMLButtonElement;
+        target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
+      }}
+      onMouseLeave={(e) => {
+        const target = e.target as HTMLButtonElement;
+        target.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+        target.style.padding = '5px 10px';
+      }} ><Link href="/dashboard"> helpEd</Link></div>
+    <div style={{ textAlign: 'center',marginRight:"5rem" , color:'white'}}>Path-Way</div>
+    <SignOutButton></SignOutButton>
+    </div>
+    </div>
       <main> 
         <div className="button-container">
           <button className="button">1</button>
@@ -142,6 +158,7 @@ const Dashboard = () => {
         }
       `}</style>
     </div>
+  
   );
 };
 
