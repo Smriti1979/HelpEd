@@ -48,6 +48,7 @@ const SignInPage = () => {
     }
     }
   return (
+    <div className='bodysignIn'>
     <div className="container mx-auto my-8 p-4 sm:w-4/5 md:w-3/5 lg:w-2/5 xl:w-1/3 bg-white rounded-lg shadow-md">
       <h1 className="text-center text-xl font-bold mt-20 text-black">SIGN IN</h1>
       <ul className="flex justify-center space-x-10 my-8">
@@ -114,6 +115,8 @@ const SignInPage = () => {
     <div className='text-center text-gray-500'>- OR -</div>
       <h3 className="text-center text-xl font-bold my-20 text-black">New?<Link className='text-blue-500 hover:underline' href="/signUp">Register Here</Link> </h3>
     </div>
+    </div>
+
   );
 };
 

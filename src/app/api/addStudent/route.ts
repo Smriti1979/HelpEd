@@ -6,11 +6,11 @@ import { NextResponse } from "next/server";
 import connect from "@/utils/db";
 
 export const POST = async (request: any) => {
-    const { locationName, studentName, studentAge } = await request.json();
+    const { locationName, studentName, age,level } = await request.json();
     await connect();
     
     const studentId = uuidv4();
-
+    console.log(locationName, studentName, age,level)
     try {
         let location = await Location.findOne({ name: locationName });
 
@@ -20,7 +20,7 @@ export const POST = async (request: any) => {
             location = new Location({
                 locationId:locationId,
                 name: locationName,
-                students: [{ studentId, name: studentName, age: studentAge }],
+                students: [{ studentId, name: studentName, age: age,level:level }],
             });
 
             const locationInfo = new LocationInfo({
@@ -30,7 +30,7 @@ export const POST = async (request: any) => {
             await locationInfo.save();
         } else {
             location.locationId=location.locationId
-            location.students.push({ studentId, name: studentName, age: studentAge });
+            location.students.push({ studentId, name: studentName, age: age,level:level });
         }
 
         await location.save();

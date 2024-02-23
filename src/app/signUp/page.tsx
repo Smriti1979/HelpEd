@@ -71,6 +71,7 @@ const SignupPage = () => {
   };
 
   return (
+    <div className='bodysignUp'>
    < div className="containers mx-auto my-8 p-4 sm:w-4/5 md:w-3/5 lg:w-2/5 xl:w-1/3 bg-white rounded-lg shadow-md">
     <h1 className="text-center text-xl font-bold mt-10 text-black">SIGN UP</h1>
     <form className="my-8" onSubmit={handleSubmit}>
@@ -175,7 +176,8 @@ const SignupPage = () => {
 
       </form>
       <div className='text-center text-gray-500'>- OR -</div>
-      <h3 className="text-center text-xl font-bold my-4 text-black">Login with an  <Link className='text-blue-500 hover:underline' href="/signIn">EXISTING ACCOUNT</Link> </h3>
+      <h3 className="text-center text-xl font-bold my-4 text-black">Login with an  <Link className='text-blue-500 hover:underline' href="/">EXISTING ACCOUNT</Link> </h3>
+    </div>
     </div>
   );
 };

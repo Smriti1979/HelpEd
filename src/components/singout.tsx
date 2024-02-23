@@ -1,25 +1,37 @@
-"use client"
-import { signOut, useSession } from 'next-auth/react';
+// SignOutButton component
+import { signOut } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 const SignOutButton: React.FC = () => {
- const {data:session}:any=useSession();
+  const router = useRouter();
+
   const handleSignOut = async () => {
-    await signOut();
+    await signOut({ redirect: false, callbackUrl: '/' });
+    router.push('/'); // Redirect to the home page after signing out
   };
 
- 
-
   return (
-    <div>
-      {session ? (
-        <>
-          <p>Signed in as {session.user.email}</p>
-          <button onClick={handleSignOut}>Sign out</button>
-        </>
-      ) : (
-        <p>You are not signed in</p>
-      )}
-    </div>
+    <button
+      onClick={handleSignOut}
+      className="text-xl text-white"
+      style={{
+        transition: 'background-color 0.3s, padding 0.3s',
+        backgroundColor: 'rgba(0, 0, 0, 0.1)',
+        padding: '5px 10px',
+        border: 'none',
+      }}
+      onMouseEnter={(e) => {
+        const target = e.target as HTMLButtonElement;
+        target.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
+      }}
+      onMouseLeave={(e) => {
+        const target = e.target as HTMLButtonElement;
+        target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
+        target.style.padding = '5px 10px';
+      }}
+    >
+      Sign Out
+    </button>
   );
 };
 

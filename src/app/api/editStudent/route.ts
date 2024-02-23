@@ -2,7 +2,7 @@ import Location from "@/models/Location";
 import { NextResponse } from "next/server";
 
 export const PUT = async (request: any) => {
-    const { locationId, studentId, newName, newAge } = await request.json();
+    const { locationId, studentId, newName, newAge,level } = await request.json();
 
     let location = await Location.findOne({ locationId: locationId });
 
@@ -10,7 +10,7 @@ export const PUT = async (request: any) => {
         return new NextResponse("Location not found", { status: 404 });
     }
 
-    const studentIndex = location.students.findIndex((student:any) => String(student.studentId) === studentId);
+    const studentIndex:any = location.students.findIndex((student:any) => String(student.studentId) === studentId);
 
     if (studentIndex === -1) {
         return new NextResponse("Student not found in location", { status: 404 });
@@ -18,6 +18,7 @@ export const PUT = async (request: any) => {
 
     location.students[studentIndex].name = newName;
     location.students[studentIndex].age = newAge;
+    location.students[studentIndex].level = level;
 
     try {
         await location.save();
