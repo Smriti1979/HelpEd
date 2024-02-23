@@ -24,7 +24,7 @@ const Dashboard = () => {
       onMouseLeave={(e) => {
         const target = e.target as HTMLButtonElement;
         target.style.backgroundColor = 'rgba(0, 0, 0, 0)';
-        target.style.padding = '5px 10px';
+        
       }} ><Link href="/dashboard"> helpEd</Link></div>
     <div style={{ textAlign: 'center',marginRight:"5rem" , color:'white'}}>Path-Way</div>
     <SignOutButton></SignOutButton>
@@ -104,7 +104,7 @@ const Dashboard = () => {
       
           .line {
             flex: 1;
-            border-top: 4px dashed #fff;
+            border-top: 4px dashed #000;
             margin: 0 10px;
           }
 
