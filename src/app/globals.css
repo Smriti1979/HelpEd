@@ -50,3 +50,16 @@ display: block;
 input::placeholder {
   color: white;
 }
+
+.header{
+  background: #1E677E;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.pathway{
+  font-size: 2rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}

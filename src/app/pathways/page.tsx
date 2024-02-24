@@ -1,14 +1,17 @@
 
 "use client"
+import "../globals.css";
 import React, { useState } from 'react';
 import Link from "next/link"
 import SignOutButton from '../../components/singout';
+import HomeButton from "@/components/homeButton";
+
 const Dashboard = () => {
   const [bgColor, setBgColor] = useState<string>('linear-gradient(to bottom, rgb(42, 213, 197) 0%,rgb(9, 181, 235)50%');
 
   return (
     <div>
-    <div style={{background: bgColor,marginBottom:"20px",paddingBottom:"1px"}}>
+    <div className="header">
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px' }}>
     <div className='text-4xl text-white ml-12'style={{
         transition: 'background-color 0.3s, padding 0.3s',
@@ -25,8 +28,11 @@ const Dashboard = () => {
         const target = e.target as HTMLButtonElement;
         target.style.backgroundColor = 'rgba(0, 0, 0, 0)';
         
-      }} ><Link href="/dashboard"> helpEd</Link></div>
-    <div style={{ textAlign: 'center',marginRight:"5rem" , color:'white'}}>Path-Way</div>
+      }} ><Link href="/dashboard"> HelpEd</Link></div>
+    <div className="pathway">Pathway</div>
+
+    <HomeButton/>
+    
     <SignOutButton></SignOutButton>
     </div>
     </div>
@@ -95,7 +101,7 @@ const Dashboard = () => {
       
           .button {
             padding: 40px 50px ;
-            background-color: #3498db;
+            background-color: #183D49;
             color: #fff;
             border: none;
             border-radius: 5px;
