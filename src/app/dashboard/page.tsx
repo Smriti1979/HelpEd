@@ -4,6 +4,7 @@ import Modal from 'react-modal';
 import { useRouter } from 'next/navigation';
 import SignOutButton from '../../components/singout';
 import PathwaysButton from '../../components/pathwayButton';
+import HomeButton from '@/components/homeButton';
 
 import { FaEdit } from 'react-icons/fa';
 
@@ -337,7 +338,8 @@ const Page: React.FC =() => {
   const [age, setAge] = useState<string>('');
   const [level, setLevel] = useState<string>('');
   const router = useRouter();
-  const [bgColor, setBgColor] = useState<string>('linear-gradient(to bottom, rgb(42, 213, 197) 0%,rgb(9, 181, 235)50%');
+  const [bgColor, setBgColor] = useState<string>('rgb(30,103,126)');
+
   const [isEditModalOpen, setIsEditModalOpen] = useState<boolean>(false);
   const [selectedStudentId, setSelectedStudentId] = useState<string>('');
   const [studentImage, setStudentImage] = useState<string>('');
@@ -437,9 +439,9 @@ const Page: React.FC =() => {
   
   return (
     <div>
-    <div style={{background: bgColor,marginBottom:"20px",paddingBottom:"1px"}}>
-    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px' }}>
-    <div className='text-4xl text-white ml-20' >helpEd</div>
+    <div style={{background: bgColor,marginBottom:"20px",paddingBottom:"50px"}}>
+    <div style={{ display: 'flex', justifyContent: 'justify-content', alignItems: 'center', padding: '10px' }}>
+    <div className='text-4xl text-white ml-20 mt-10' style= {{fontSize:"4rem"}}>Help<span style={{color:'#101D62', fontWeight: 'bold'}}>Ed</span></div>
     <div style={{ textAlign: 'center', flex: '5',  marginLeft:"4rem"}}>
   {locations.length > 0 && (
    <select
@@ -452,7 +454,8 @@ const Page: React.FC =() => {
      borderRadius: '5px',
      border: '1px solid #ccc',
      transition: 'background-color 0.3s',
-     cursor:'pointer'
+     cursor:'pointer',
+     marginTop: "2rem"
    }}
    onMouseEnter={(e) => {
      const target = e.target as HTMLSelectElement;
@@ -482,6 +485,8 @@ const Page: React.FC =() => {
   )}
 </div>
 
+<HomeButton/>
+
 <PathwaysButton/>
 
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', flex: '1' }}>
@@ -489,23 +494,30 @@ const Page: React.FC =() => {
   onClick={openModal}
   className='mr-14 text-white'
   style={{
-    transition: 'background-color 0.3s, padding 0.3s',
-    backgroundColor: 'rgba(0, 0, 0, 0.1)',
-    padding: '5px 10px',
+    color: 'black',
+    backgroundColor: 'rgba(0,0,0,0.1)',
+    padding: '10px 20px',
     border: 'none',
+    marginTop: "2rem",
+    fontSize: "1.5rem",
+    display: 'flex',
+    justifyContent: 'center',
+    width: '300px',
+    borderRadius: '10px',
+    fontWeight: 'bold', 
   }}
   onMouseEnter={(e) => {
     const target = e.target as HTMLButtonElement;
-    target.style.backgroundColor = 'rgba(0, 0, 0, 0.3)'; 
+    target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'; 
     ; 
   }}
   onMouseLeave={(e) => {
     const target = e.target as HTMLButtonElement; 
     target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
-    target.style.padding = '5px 10px';
+    target.style.padding = '10px 20px';
   }}
 >
-  +
+  + Add Student
 </button>
       <SignOutButton />
     </div>
