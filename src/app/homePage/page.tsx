@@ -98,7 +98,7 @@ const Homepage: React.FC = () => {
 
           .header {
           width: 100%;
-          padding: 1rem;
+          padding-bottom: 20px;
           background-color: #1E677E;
         }
 

@@ -7,7 +7,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to bottom, rgb(42, 213, 197) 0%, rgb(9, 181, 235) 30%,rgb(255, 255, 255) 20%);
+    background: linear-gradient(to bottom, rgb(30,105,126) 40%,rgb(255, 255, 255) 20%);
   }
   
   .container {

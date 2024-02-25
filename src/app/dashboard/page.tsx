@@ -449,17 +449,17 @@ const Page: React.FC =() => {
    onChange={handleLocationChange}
    style={{
      color: 'white',
-     backgroundColor: 'transparent',
-     padding: '5px',
-     borderRadius: '5px',
-     border: '1px solid #ccc',
-     transition: 'background-color 0.3s',
+    //  backgroundColor: 'transparent',
+     padding: '10px',
+     borderRadius: '10px',
+     border: '1px solid #000',
+     transition: '0.3s',
      cursor:'pointer',
      marginTop: "2rem"
    }}
    onMouseEnter={(e) => {
      const target = e.target as HTMLSelectElement;
-     target.style.backgroundColor = 'rgba(9, 181, 235, 1)'; 
+     target.style.backgroundColor = 'rgba(0,0,0,0.8)'; 
    }}
    onMouseLeave={(e) => {
      const target = e.target as HTMLSelectElement; 
@@ -467,14 +467,14 @@ const Page: React.FC =() => {
    }}
    onFocus={(e) => {
      const target = e.target as HTMLSelectElement;
-     target.style.backgroundColor = 'rgba(9, 181, 235, 0.3)'; 
+     target.style.backgroundColor = 'rgba(0,0,0,0.8)'; 
    }}
    onBlur={(e) => {
      const target = e.target as HTMLSelectElement; 
      target.style.backgroundColor = 'transparent';
    }}
  >
-   <option value="" disabled hidden style={{ color: 'blue' }}>Location</option>
+   <option value="" disabled hidden style={{ color: 'black' }}>Location</option>
    {locations.map((location) => (
      <option key={location.locationId} value={location.locationId}>
        {location.locationName}
@@ -508,12 +508,12 @@ const Page: React.FC =() => {
   }}
   onMouseEnter={(e) => {
     const target = e.target as HTMLButtonElement;
-    target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'; 
+    target.style.backgroundColor = 'rgba(0, 0, 0,1 )'; 
     ; 
   }}
   onMouseLeave={(e) => {
     const target = e.target as HTMLButtonElement; 
-    target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
+    target.style.backgroundColor = 'rgba(0, 0, 0, 1)';
     target.style.padding = '10px 20px';
   }}
 >
@@ -541,7 +541,7 @@ const Page: React.FC =() => {
     </div>
     <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', marginLeft: 24, marginRight: 24 }}>
   {students.map((student: { studentId: string; name: string; age: number; level: number; Image: string }, index: number) => (
-    <div key={student.studentId} className="student-card" style={{ width: '200px', height: '400px', margin: '10px', border: '2px solid black', borderRadius: "5%", boxShadow: "1px 1px 2px rgba(9, 181, 235, 0.6)", display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', flex: '0 0 20%', position: 'relative' }}>
+    <div key={student.studentId} className="student-card" style={{ width: '150px', height: '400px', margin: '10px', border: '2px solid gray', borderRadius: "5%", boxShadow: "1px 1px 2px rgba(0,0,0,0.1)", display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', flex: '0 0 20%', position: 'relative' }}>
       <div style={{ position: 'absolute', top: '0px', left: '3px', zIndex: 2, color: 'white', fontSize: '15px', fontWeight: 'bold', }}>
         {student.level}
       </div>
@@ -562,23 +562,23 @@ const Page: React.FC =() => {
               width: '150px',
               height: '150px',
               borderRadius: '50%',
-              backgroundColor: '#f0f0f0',
+              backgroundColor: 'rgba(0,0,0)',
               display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: "center", objectFit: "fill"
             }}
           />
         </div>
       </div>
       <p>
-        <span className="label" style={{ margin: 0 }}>Name:</span>
-        <span className="value" style={{ borderBottom: "2px dotted black", marginLeft: 20 }}>{student.name}</span>
+        <span className="label" style={{ marginTop: '10px' }}>Name:</span>
+        <span className="value" style={{ marginLeft: 20 }}>{student.name}</span>
       </p>
       <p>
-        <span className="label" style={{ margin: 0 }}>Age:</span>
-        <span className="value" style={{ marginLeft: 33, borderBottom: "2px dotted black" }}>{student.age}</span>
+        <span className="label" style={{ marginTop: '10px' }}>Age:</span>
+        <span className="value" style={{ marginLeft: 33 }}>{student.age}</span>
       </p>
       <p>
-        <span className="label" style={{ margin: 0 }}>Level:</span>
-        <span className="value" style={{ marginLeft: 33, borderBottom: "2px dotted black" }}>{student.level}</span>
+        <span className="label" style={{ marginTop: '10px' }}>Level:</span>
+        <span className="value" style={{ marginLeft: 33 }}>{student.level}</span>
       </p>
     </div>
   )).reduce((rows: JSX.Element[][], current: JSX.Element, index: number) => {
