@@ -91,7 +91,7 @@ const EditStudentModal: React.FC<{
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '50%', marginBottom: '0px' }}>
         <label htmlFor="imageInput">
           <img
-            src={studentImage}
+            src={studentImage||'/images/profile-white.svg'}
             alt="Student"
             style={{ width: '150px', height: '150px', borderRadius: '50%', cursor: 'pointer' }}
           />
@@ -555,15 +555,20 @@ const Page: React.FC =() => {
       <div id="cont">
         <div id="box">
           <img
-            src={student.Image}
+            src={student.Image||'/images/profile-white.svg'}
             className="border-gradient"
             alt="Placeholder"
             style={{
               width: '150px',
               height: '150px',
               borderRadius: '50%',
-              backgroundColor: 'rgba(0,0,0)',
-              display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: "center", objectFit: "fill"
+              backgroundColor: 'rgba(255, 255, 255)',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              textAlign: 'center',
+              objectFit: 'cover', 
+              
             }}
           />
         </div>
