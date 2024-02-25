@@ -2,7 +2,7 @@ const { google } = require('googleapis');
 const SPREADSHEET_ID = process.argv[2];
 const base64Credentials = process.argv[3];
 const credentials = JSON.parse(Buffer.from(base64Credentials, 'base64').toString('utf-8'));
-
+console.log(SPREADSHEET_ID , credentials)
 const auth = new google.auth.GoogleAuth({
   credentials,
   scopes: ['https://www.googleapis.com/auth/spreadsheets'],
