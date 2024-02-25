@@ -586,7 +586,7 @@ const Page: React.FC =() => {
     rows[row] = rows[row] || [];
     rows[row].push(current);
     return rows;
-  }, []).map(row => <div style={{ display: 'flex', justifyContent: 'space-around', width: '100%' }}>{row}</div>)}
+  }, []).map((row, index) => <div key={index} style={{ display: 'flex', justifyContent: 'space-around', width: '100%' }}>{row}</div>)}
 </div>
 
 
