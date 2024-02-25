@@ -2,7 +2,7 @@ import Location from "@/models/Location";
 import { NextResponse } from "next/server";
 
 export const PUT = async (request: any) => {
-    const { locationId, studentId, newName, newAge,level } = await request.json();
+    const { locationId, studentId, newName, newAge,level,Image } = await request.json();
 
     let location = await Location.findOne({ locationId: locationId });
 
@@ -19,6 +19,8 @@ export const PUT = async (request: any) => {
     location.students[studentIndex].name = newName;
     location.students[studentIndex].age = newAge;
     location.students[studentIndex].level = level;
+    location.students[studentIndex].Image = Image;
+
 
     try {
         await location.save();

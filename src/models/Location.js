@@ -11,6 +11,7 @@ const studentSchema = new Schema({
     name: String,
     age: Number,
     level:Number,
+    Image:String,
     // Add other student details as needed
 });
 

@@ -1,0 +1,25 @@
+name: Update Google Sheet
+
+on:
+  workflow_dispatch:
+  schedule:
+      - cron: '0 0 * * *' 
+jobs:
+  update-sheet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18.17.1'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run script to update Google Sheet
+        run: node ./sheetsMapping/connect.js ${{ secrets.CREDENTIALS }} ${{ secrets.MONGO_URL }}
+      
+
