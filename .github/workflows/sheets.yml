@@ -26,11 +26,20 @@ jobs:
         run: npm install
 
       - name: Start server
-        run: npm run dev &
+        run: |
+          npm run dev
         env:
           MONGO_URL: ${{ secrets.MONGO_URL }}
           NEXTAUTH_URL: ${{ secrets.NEXTAUTH_URL }}
           NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
+        timeout-minutes: 5
+
+      - name: Wait for server to start
+        run: |
+          until $(curl --output /dev/null --silent --head --fail http://localhost:3000); do
+            printf '.'
+            sleep 5
+          done
         timeout-minutes: 5
 
       - name: Run script
