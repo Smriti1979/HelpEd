@@ -6,17 +6,16 @@ const HomeButton = () => {
   const router = useRouter();
   const { data: session } = useSession();
 
-  const handleSignOut = async () => {
-    router.push('/homePage');
+  const handleSesssion = async () => {
+    router.push('/dashboard');
   };
 
   // Render button only if session exists
   if (session) {
     return (
       <button
-        onClick={handleSignOut}
+        onClick={handleSesssion}
         style={{
-          marginRight:'5rem',
           color: 'black',
           backgroundColor: 'rgba(0,0,0,0.1)',
           padding: '10px 20px',
@@ -39,7 +38,7 @@ const HomeButton = () => {
           target.style.padding = '10px 20px';
         }}
       >
-        Home
+        Dashboard
       </button>
     );
   }
