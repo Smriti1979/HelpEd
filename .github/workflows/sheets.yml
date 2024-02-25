@@ -8,11 +8,6 @@ on:
 jobs:
   run-script:
     runs-on: ubuntu-latest
-
-    env:
-      SPREADSHEET_ID: ${{ secrets.SPREADSHEET_ID }}
-      CREDENTIALS: ${{ secrets.CREDENTIALS }}
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -26,8 +21,7 @@ jobs:
         run: npm install
 
       - name: Start server
-        run: |
-          npm run dev
+        run: npm run dev &
         env:
           MONGO_URL: ${{ secrets.MONGO_URL }}
           NEXTAUTH_URL: ${{ secrets.NEXTAUTH_URL }}
