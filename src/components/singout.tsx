@@ -19,7 +19,7 @@ const SignOutButton: React.FC = () => {
         className="text-xl text-white"
         style={{
           color: 'white',
-          backgroundColor: '#000',
+          backgroundColor: 'rgba(0,0,0,0.2)',
           padding: '10px 20px',
           border: 'none',
           fontSize: "1.5rem",
@@ -30,12 +30,12 @@ const SignOutButton: React.FC = () => {
         }}
         onMouseEnter={(e) => {
           const target = e.target as HTMLButtonElement;
-          target.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
+          target.style.backgroundColor = 'rgba(0, 0, 0, 0.6)';
         }}
         onMouseLeave={(e) => {
           const target = e.target as HTMLButtonElement;
-          target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
-          target.style.padding = '5px 10px';
+          target.style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
+          target.style.padding = '10px 20px';
         }}
       >
         Sign In
@@ -49,7 +49,7 @@ const SignOutButton: React.FC = () => {
       className="text-xl text-white"
       style={{
         color: 'white',
-        backgroundColor: '#000',
+        backgroundColor: 'rgba(0,0,0,0.2)',
         padding: '10px 20px',
         border: 'none',
         fontSize: "1.5rem",
@@ -60,12 +60,12 @@ const SignOutButton: React.FC = () => {
       }}
       onMouseEnter={(e) => {
         const target = e.target as HTMLButtonElement;
-        target.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
+        target.style.backgroundColor = 'rgba(0, 0, 0, 0.6)';
       }}
       onMouseLeave={(e) => {
         const target = e.target as HTMLButtonElement;
-        target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
-        target.style.padding = '5px 10px';
+        target.style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
+        target.style.padding = '10px 20px';
       }}
     >
       Sign Out

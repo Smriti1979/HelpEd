@@ -460,6 +460,8 @@ const Page: React.FC =() => {
                 padding: '10px',
                 borderRadius: '10px',
                 border: '1px solid #000',
+                width:"300px",
+                textAlign:"center",
                 transition: '0.3s',
                 cursor: 'pointer',
               }}
@@ -496,8 +498,8 @@ const Page: React.FC =() => {
             onClick={openModal}
             className='mr-14 text-white'
             style={{
-              color: 'black',
-              backgroundColor: 'rgba(0,0,0,0.1)',
+              color: 'white',
+              backgroundColor: 'rgba(0,0,0,0.2)',
               padding: '10px 20px',
               border: 'none',
               fontSize: "1.5rem",
@@ -505,15 +507,15 @@ const Page: React.FC =() => {
               justifyContent: 'center',
               width: '300px',
               borderRadius: '10px',
-              fontWeight: 'bold',
+              
             }}
             onMouseEnter={(e) => {
               const target = e.target as HTMLButtonElement;
-              target.style.backgroundColor = 'rgba(0, 0, 0,0.1 )';
+              target.style.backgroundColor = 'rgba(0, 0, 0,0.6 )';
             }}
             onMouseLeave={(e) => {
               const target = e.target as HTMLButtonElement;
-              target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
+              target.style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
               target.style.padding = '10px 20px';
             }}
           >
