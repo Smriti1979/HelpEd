@@ -34,13 +34,5 @@ jobs:
           NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
         timeout-minutes: 5
 
-      - name: Wait for server to start
-        run: |
-          until $(curl --output /dev/null --silent --head --fail http://localhost:3000); do
-            printf '.'
-            sleep 5
-          done
-        timeout-minutes: 5
-
       - name: Run script
         run: node ./sheetsMapping/connect.js ${{ secrets.CREDENTIALS }}
