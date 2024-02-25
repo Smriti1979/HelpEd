@@ -13,28 +13,34 @@ const Dashboard = () => {
   return (
     <div>
       <div className="header">
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px' }}>
-          <div className='text-4xl text-white ml-20 mt-10' style={{ fontSize: "4rem" }}>Help<span style={{ color: '#101D62', fontWeight: 'bold' }}>Ed</span></div>
-          <div className='text-4xl text-white ml-12' style={{
-            transition: 'background-color 0.3s, padding 0.3s',
-            backgroundColor: 'rgba(0, 0, 0, 0)',
-            padding: '5px 10px',
-            border: 'none',
+        <div style={{ display: 'flex', justifyContent: 'justify-content', alignItems: 'center' }}>
+        <div className='text-4xl text-white' style={{ fontSize: "4rem" }}>Help<span style={{ color: '#101D62', fontWeight: 'bold' }}>Ed</span></div>
+        <div className='text-4xl text-white ml-12' style={{
+          transition: 'background-color 0.3s, padding 0.3s',
+          backgroundColor: 'rgba(0, 0, 0, 0)',
+          padding: '5px 10px',
+          border: 'none',
+        }}
+          onMouseEnter={(e) => {
+            const target = e.target as HTMLButtonElement;
+            target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
           }}
-            onMouseEnter={(e) => {
-              const target = e.target as HTMLButtonElement;
-              target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
-            }}
-            onMouseLeave={(e) => {
-              const target = e.target as HTMLButtonElement;
-              target.style.backgroundColor = 'rgba(0, 0, 0, 0)';
-            }}></div>
-
-          <HomeButton />
-          <PathwaysButton />
-          <SignOutButton></SignOutButton>
+          onMouseLeave={(e) => {
+            const target = e.target as HTMLButtonElement;
+            target.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+          }} >
+        </div>
+        <div style={{ marginLeft:'1200px'}}>
+        <HomeButton />
+        </div>
+        <div style={{ marginLeft:'10px'}}>
+        <PathwaysButton />
+        </div>
+        <div style={{ marginLeft:'100px'}}>
+          <SignOutButton />
         </div>
       </div>
+    </div>
 
       <main>
         <div className="level-buttons">
@@ -43,12 +49,11 @@ const Dashboard = () => {
       </main>
 
       <style jsx>{`
-          body {
-            background-color: #fff; 
-            margin: 0; 
-            padding:0;
-            font-family: 'Arial', sans-serif; 
-          }
+         *{
+          margin: 0;
+          padding: 0;
+          font-family: 'Arial', sans-serif;
+         }
 
           .header {
             width: 100%;
