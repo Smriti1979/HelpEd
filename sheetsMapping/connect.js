@@ -3,7 +3,7 @@ const { google } = require('googleapis');
 const { v4: uuidv4 } = require('uuid');
 const base64Credentials = process.argv[2];
 const Mongo=process.argv[3];
-const Mongo_url = `mongodb+srv://shlokmishr08:${Mongo}@cluster0.evqge0k.mongodb.net/?retryWrites=true&w=majority`;
+const Mongo_url = `mongodb+srv://shlokmishr08:abcd@cluster0.evqge0k.mongodb.net/?retryWrites=true&w=majority`;
 console.log(Mongo_url)
 const credentials = JSON.parse(Buffer.from(base64Credentials, 'base64').toString('utf-8'));
 const { Schema } = mongoose;
@@ -59,7 +59,7 @@ const connect = async () => {
   if (mongoose.connections[0].readyState) return;
 
   try {
-    await mongoose.connect(Mongo_url, {
+    await mongoose.connect("mongodb+srv://shlokmishr08:abcd@cluster0.evqge0k.mongodb.net/?retryWrites=true&w=majority", {
       useNewUrlParser: true,
       useUnifiedTopology: true
     });
