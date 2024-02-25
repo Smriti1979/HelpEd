@@ -2,7 +2,7 @@
 import { signOut } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
-const SignOutButton: React.FC = () => {
+const pathwayButton: React.FC = () => {
   const router = useRouter();
 
   const handleSignOut = async () => {
@@ -36,4 +36,4 @@ const SignOutButton: React.FC = () => {
   );
 };
 
-export default SignOutButton;
+export default pathwayButton;

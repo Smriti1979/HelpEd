@@ -11,7 +11,7 @@ interface Location {
   _id: string;
   locationId: string;
   name: string;
-  students: { studentId: string; name: string; age: number;level:number }[];
+  students: { studentId: string; name: string; age: number;level:number;Image:string }[];
   __v: number;
 }
 interface Student {
@@ -19,23 +19,58 @@ interface Student {
   name: string;
   age: number;
   level:number;
+  Image:string;
   // Add other properties if needed
+}
+interface AddStudentModalProps {
+  isOpen: boolean;
+  closeModal: () => void;
+  handleSubmit: (e: React.FormEvent<HTMLFormElement>,image: string | null) => void;
+  studentName: string;
+  setStudentName: React.Dispatch<React.SetStateAction<string>>;
+  locationName: string;
+  setLocationName: React.Dispatch<React.SetStateAction<string>>;
+  age: string;
+  setAge: React.Dispatch<React.SetStateAction<string>>;
+  level: string;
+  setLevel: React.Dispatch<React.SetStateAction<string>>;
 }
 const EditStudentModal: React.FC<{
   isOpen: boolean;
   closeModal: () => void;
-  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  handleSubmit: (e: React.FormEvent<HTMLFormElement>,Image:string) => void;
   studentName: string;
   setStudentName: React.Dispatch<React.SetStateAction<string>>;
   age: string;
   setAge: React.Dispatch<React.SetStateAction<string>>;
   level: string;
   setLevel: React.Dispatch<React.SetStateAction<string>>;
-}> = ({ isOpen, closeModal, handleSubmit, studentName, setStudentName, age, setAge, level, setLevel }) => {
+  studentImage: string;
+  setStudentImage: React.Dispatch<React.SetStateAction<string>>;
+}> = ({ isOpen, closeModal, handleSubmit, studentName, setStudentName, age, setAge, level, setLevel, studentImage, setStudentImage }) => {
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(age,level,studentName+"his")
+    const file = e.target.files && e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setStudentImage(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleModalClose = () => {
+    if (studentImage !== "") {
+      setStudentImage(studentImage);
+    }
+    closeModal();
+  };
+
   return (
     <Modal
       isOpen={isOpen}
-      onRequestClose={closeModal}
+      onRequestClose={handleModalClose}
       style={{
         content: {
           width: '500px',
@@ -44,7 +79,7 @@ const EditStudentModal: React.FC<{
           padding: '20px',
           borderRadius: '10px',
           border: '1px solid rgb(42, 213, 197)',
-          background: 'linear-gradient(to bottom, rgb(42, 213, 197) 0%, rgb(9, 181, 235) 100%',
+          background: 'linear-gradient(to bottom, rgb(42, 213, 197) 0%, rgb(9, 181, 235) 100%)',
           overflow: 'hidden',
         },
         overlay: {
@@ -53,16 +88,23 @@ const EditStudentModal: React.FC<{
       }}
     >
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '50%', marginBottom: '0px' }}>
-        <img src="https://via.placeholder.com/150" alt="Placeholder" style={{ width: '150px', height: '150px', borderRadius: '50%' }} />
+        <label htmlFor="imageInput">
+          <img
+            src={studentImage}
+            alt="Student"
+            style={{ width: '150px', height: '150px', borderRadius: '50%', cursor: 'pointer' }}
+          />
+          <input id="imageInput" type="file" accept="image/*" style={{ display: 'none' }} onChange={handleImageChange} />
+        </label>
       </div>
       <form
-        onSubmit={handleSubmit}
+        onSubmit={(e) => handleSubmit(e,studentImage)}
         style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
       >
         <label style={{ marginBottom: '10px' }}>
           <input
             type="text"
-            placeholder="Enter student name"
+            placeholder={studentName}
             value={studentName}
             onChange={(e) => setStudentName(e.target.value)}
             style={{
@@ -78,7 +120,7 @@ const EditStudentModal: React.FC<{
         <label style={{ marginBottom: '10px' }}>
           <input
             type="number"
-            placeholder="Enter age"
+            placeholder={age}
             value={age}
             onChange={(e) => setAge(e.target.value)}
             style={{
@@ -94,7 +136,7 @@ const EditStudentModal: React.FC<{
         <label style={{ marginBottom: '10px' }}>
           <input
             type="text"
-            placeholder="Enter level"
+            placeholder={level}
             value={level}
             onChange={(e) => setLevel(e.target.value)}
             style={{
@@ -135,21 +177,28 @@ const EditStudentModal: React.FC<{
 
 
 
-const AddStudentModal: React.FC<{
-  isOpen: boolean;
-  closeModal: () => void;
-  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
-  studentName: string;
-  setStudentName: React.Dispatch<React.SetStateAction<string>>;
-  locationName: string;
-  setLocationName: React.Dispatch<React.SetStateAction<string>>;
-  age: string;
-  setAge: React.Dispatch<React.SetStateAction<string>>;
-  level: string;
-  setLevel: React.Dispatch<React.SetStateAction<string>>;
+
+const AddStudentModal: React.FC<AddStudentModalProps> = ({ isOpen, closeModal, handleSubmit, studentName, setStudentName, locationName, setLocationName, age, setAge, level, setLevel }) => {
+  const [image, setImage] = useState<string | null>(null);
+
+  const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        const base64Image = reader.result?.toString();
+        if (base64Image) {
+          setImage(base64Image);
+        }
+      };
+      reader.onerror = (error) => {
+        console.error('Error converting image to base64:', error);
+      };
+    }
+  };
   
-}> = ({ isOpen, closeModal, handleSubmit, studentName, setStudentName, locationName, setLocationName, age, setAge, level, setLevel }) => {
-  return (
+    return (
     <Modal isOpen={isOpen} onRequestClose={closeModal} style={{
       content: {
         width: '500px',
@@ -166,9 +215,24 @@ const AddStudentModal: React.FC<{
       },
     }}>
      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '50%', marginBottom: '0px' }}>
-        <img src="https://via.placeholder.com/150" alt="Placeholder" style={{ width: '150px', height: '150px', borderRadius: '50%' }} />
+  <label htmlFor="upload-image">
+    {image && (
+      <img
+        src={image}
+        alt="Selected"
+        style={{ width: '200px', height: '200px', borderRadius:"50%",objectFit: 'cover', cursor: 'pointer' }}
+      />
+    )}
+    {!image && (
+      <div style={{ width: '200px', height: '200px', backgroundColor: '#f0f0f0', cursor: 'pointer', display: 'flex', justifyContent: 'center', borderRadius:"50%",alignItems: 'center',textAlign:"center" }}>
+        Upload Image
       </div>
-      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    )}
+    <input id="upload-image" type="file" onChange={handleImageChange} style={{ display: 'none' }} />
+  </label>
+</div>
+
+<form onSubmit={(e) => handleSubmit(e,image)} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
   <label style={{ marginBottom: '10px' }}>
     <input 
       type="text" 
@@ -266,7 +330,7 @@ Add Student
 const Page: React.FC =() => {
   const [locations, setLocations] = useState<{ _id: string; locationId: string; locationName: string }[]>([]);
   const [selectedLocationId, setSelectedLocationId] = useState<string>('');
-  const [students, setStudents] = useState<{ studentId: string; name: string; age: number;level:number }[]>([]);
+  const [students, setStudents] = useState<{ studentId: string; name: string; age: number;level:number;Image:string }[]>([]);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [studentName, setStudentName] = useState<string>('');
   const [locationName, setLocationName] = useState<string>('');
@@ -274,12 +338,17 @@ const Page: React.FC =() => {
   const [level, setLevel] = useState<string>('');
   const router = useRouter();
   const [bgColor, setBgColor] = useState<string>('linear-gradient(to bottom, rgb(42, 213, 197) 0%,rgb(9, 181, 235)50%');
-
   const [isEditModalOpen, setIsEditModalOpen] = useState<boolean>(false);
   const [selectedStudentId, setSelectedStudentId] = useState<string>('');
+  const [studentImage, setStudentImage] = useState<string>('');
+
   
-  const openEditModal = (studentId: string) => {
+  const openEditModal = (studentId: string,studentImage:string,studentName:string,age:string,level:string) => {
     setSelectedStudentId(studentId);
+    setStudentName(studentName);
+    setAge(age);
+    setLevel(level)
+    setStudentImage(studentImage);
     setIsEditModalOpen(true);
   };
   
@@ -317,6 +386,7 @@ const Page: React.FC =() => {
       const selectedLocationStudents = data.find((location) => location.locationId === selectedLocationId)?.students.map((student) => ({
         ...student,
         level: student.level, 
+        Image:student.Image,
       })) || [];      
       setStudents(selectedLocationStudents);
     } catch (error) {
@@ -327,14 +397,14 @@ const Page: React.FC =() => {
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>,image: string | null) => {
     e.preventDefault();
     const response = await fetch('/api/addStudent', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ locationName, studentName, age, level }),
+      body: JSON.stringify({ locationName, studentName, age, level,image }),
     });
 
     if (response.ok) {
@@ -344,7 +414,7 @@ const Page: React.FC =() => {
       // Handle error
     }
   };
-  const handleEditSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleEditSubmit = async (e: React.FormEvent<HTMLFormElement>,Image:string) => {
     e.preventDefault();
     console.log()
     const response = await fetch('/api/editStudent', {
@@ -352,7 +422,7 @@ const Page: React.FC =() => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ locationId: selectedLocationId, studentId: selectedStudentId, newName: studentName, newAge: parseInt(age),level:parseInt(level) }),
+      body: JSON.stringify({ locationId: selectedLocationId, studentId: selectedStudentId, newName: studentName, newAge: parseInt(age),level:parseInt(level),Image:Image}),
     });
   
     if (response.ok) {
@@ -458,7 +528,7 @@ const Page: React.FC =() => {
       />
     </div>
     <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around' ,marginLeft:24, marginRight:24 }}>
-  {students.map((student: { studentId: string; name: string; age: number; level:number }, index: number) => (
+  {students.map((student: { studentId: string; name: string; age: number; level:number;Image:string }, index: number) => (
     <div key={student.studentId} className="student-card" style={{ width: '200px', height: '400px', margin: '10px', border: '2px solid black',borderRadius:"5%", boxShadow:"1px 1px 2px rgba(9, 181, 235, 0.6)",display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', flex: '0 0 20%', position: 'relative' }}>
       <div style={{ position: 'absolute', top: '0px', left: '3px', zIndex: 2, color: 'white', fontSize: '15px', fontWeight: 'bold', }}>
     {student.level}
@@ -466,29 +536,26 @@ const Page: React.FC =() => {
       <img src="/images/icons/star.svg" alt="star" style={{ position: 'absolute', top: '-40px', left: '-40px', zIndex: 1,width:"100px" }} />
 
      <button className="edit-button" style={{ position: 'absolute', top: '10px', right: '10px', background: 'transparent', border: 'none' }}
-       onClick={() => openEditModal(student.studentId)}
+       onClick={() => openEditModal(student.studentId,student.Image,student.name,student.age.toString(),student.level.toString())}
 >
   <FaEdit />
 </button>
 <div id="cont">
   <div id="box">
   <img
-  src="https://via.placeholder.com/150"
+  src={student.Image}
   className="border-gradient"
   alt="Placeholder"
   style={{
     width: '150px',
     height: '150px',
     borderRadius: '50%',
+    backgroundColor: '#f0f0f0',
+    display: 'flex', justifyContent: 'center',alignItems: 'center',textAlign:"center",objectFit:"fill"
   }}
 />
   </div>
 </div>
-
-
-
-
-
       <p>
         <span className="label" style={{ margin: 0 }}>Name:</span>
         <span className="value" style={{ borderBottom: "2px dotted black", marginLeft: 20 }}>{student.name}</span>
@@ -521,10 +588,9 @@ const Page: React.FC =() => {
   setAge={setAge}
   level={level}
   setLevel={setLevel}
+  studentImage={studentImage}
+  setStudentImage={setStudentImage}
 />
-
-
-
 </div>
 
 
