@@ -109,6 +109,15 @@ const Dashboard: React.FC = () => {
   <div style={{ width: '300px', height: '100px', padding: '8px 12px', marginBottom: '20px', backgroundColor: hoveredButton === 7 ? '#008394' : '#BCBCBC', border: 'none', borderRadius: '10px', cursor: 'pointer', fontSize: '2rem', color: '#000', fontWeight: 'medium', textAlign: 'center', position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }} onMouseEnter={() => handleMouseEnter(7)} onMouseLeave={handleMouseLeave}>
     Level 7
   </div>
+  <div style={{ width: '300px', height: '100px', padding: '8px 12px', marginBottom: '20px', backgroundColor: hoveredButton === 10 ? '#008394' : '#BCBCBC', border: 'none', borderRadius: '10px', cursor: 'pointer', fontSize: '2rem', color: '#000', fontWeight: 'medium', textAlign: 'center', position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }} onMouseEnter={() => handleMouseEnter(10)} onMouseLeave={handleMouseLeave}>
+    Level 10
+  </div>
+  <div style={{ width: '300px', height: '100px', padding: '8px 12px', marginBottom: '20px', backgroundColor: hoveredButton === 13 ? '#008394' : '#BCBCBC', border: 'none', borderRadius: '10px', cursor: 'pointer', fontSize: '2rem', color: '#000', fontWeight: 'medium', textAlign: 'center', position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }} onMouseEnter={() => handleMouseEnter(13)} onMouseLeave={handleMouseLeave}>
+    Level 13
+  </div>
+  <div style={{ width: '300px', height: '100px', padding: '8px 12px', marginBottom: '20px', backgroundColor: hoveredButton === 16 ? '#008394' : '#BCBCBC', border: 'none', borderRadius: '10px', cursor: 'pointer', fontSize: '2rem', color: '#000', fontWeight: 'medium', textAlign: 'center', position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }} onMouseEnter={() => handleMouseEnter(16)} onMouseLeave={handleMouseLeave}>
+    Level 16
+  </div>
 </div>
 
 <div className="button-column" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '20px' }}>
@@ -120,6 +129,15 @@ const Dashboard: React.FC = () => {
   </div>
   <div style={{ width: '300px', height: '100px', padding: '8px 12px', marginBottom: '20px', backgroundColor: hoveredButton === 8 ? '#008394' : '#BCBCBC', border: 'none', borderRadius: '10px', cursor: 'pointer', fontSize: '2rem', color: '#000', fontWeight: 'medium', textAlign: 'center', position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }} onMouseEnter={() => handleMouseEnter(8)} onMouseLeave={handleMouseLeave}>
     Level 8
+  </div>
+  <div style={{ width: '300px', height: '100px', padding: '8px 12px', marginBottom: '20px', backgroundColor: hoveredButton === 11 ? '#008394' : '#BCBCBC', border: 'none', borderRadius: '10px', cursor: 'pointer', fontSize: '2rem', color: '#000', fontWeight: 'medium', textAlign: 'center', position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }} onMouseEnter={() => handleMouseEnter(11)} onMouseLeave={handleMouseLeave}>
+    Level 11
+  </div>
+  <div style={{ width: '300px', height: '100px', padding: '8px 12px', marginBottom: '20px', backgroundColor: hoveredButton === 14 ? '#008394' : '#BCBCBC', border: 'none', borderRadius: '10px', cursor: 'pointer', fontSize: '2rem', color: '#000', fontWeight: 'medium', textAlign: 'center', position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }} onMouseEnter={() => handleMouseEnter(14)} onMouseLeave={handleMouseLeave}>
+    Level 14
+  </div>
+  <div style={{ width: '300px', height: '100px', padding: '8px 12px', marginBottom: '20px', backgroundColor: hoveredButton === 17 ? '#008394' : '#BCBCBC', border: 'none', borderRadius: '10px', cursor: 'pointer', fontSize: '2rem', color: '#000', fontWeight: 'medium', textAlign: 'center', position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }} onMouseEnter={() => handleMouseEnter(17)} onMouseLeave={handleMouseLeave}>
+    Level 17
   </div>
 </div>
 
@@ -133,7 +151,17 @@ const Dashboard: React.FC = () => {
   <div style={{ width: '300px', height: '100px', padding: '8px 12px', marginBottom: '20px', backgroundColor: hoveredButton === 9 ? '#008394' : '#BCBCBC', border: 'none', borderRadius: '10px', cursor: 'pointer', fontSize: '2rem', color: '#000', fontWeight: 'medium', textAlign: 'center', position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }} onMouseEnter={() => handleMouseEnter(9)} onMouseLeave={handleMouseLeave}>
     Level 9
   </div>
+  <div style={{ width: '300px', height: '100px', padding: '8px 12px', marginBottom: '20px', backgroundColor: hoveredButton === 12 ? '#008394' : '#BCBCBC', border: 'none', borderRadius: '10px', cursor: 'pointer', fontSize: '2rem', color: '#000', fontWeight: 'medium', textAlign: 'center', position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }} onMouseEnter={() => handleMouseEnter(12)} onMouseLeave={handleMouseLeave}>
+    Level 12
+  </div>
+  <div style={{ width: '300px', height: '100px', padding: '8px 12px', marginBottom: '20px', backgroundColor: hoveredButton === 15 ? '#008394' : '#BCBCBC', border: 'none', borderRadius: '10px', cursor: 'pointer', fontSize: '2rem', color: '#000', fontWeight: 'medium', textAlign: 'center', position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }} onMouseEnter={() => handleMouseEnter(15)} onMouseLeave={handleMouseLeave}>
+    Level 15
+  </div>
+  <div style={{ width: '300px', height: '100px', padding: '8px 12px', marginBottom: '20px', backgroundColor: hoveredButton === 18 ? '#008394' : '#BCBCBC', border: 'none', borderRadius: '10px', cursor: 'pointer', fontSize: '2rem', color: '#000', fontWeight: 'medium', textAlign: 'center', position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }} onMouseEnter={() => handleMouseEnter(18)} onMouseLeave={handleMouseLeave}>
+    Level 18
+  </div>
 </div>
+
         {/* Other button columns */}
       </main>
       <Modal isVisible={hoveredButton !== null} level={modalLevel} topic1={modalTopic1} topic2={modalTopic2} topic3={modalTopic3} />
