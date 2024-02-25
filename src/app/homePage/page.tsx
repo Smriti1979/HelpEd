@@ -54,12 +54,22 @@ const Homepage: React.FC = () => {
           <h1>The Solution</h1>
         </div>
         <div className="sol-para">
-          <p>There are a lot of NGOs and non-profitable organizations that work towards providing education to unprivileged children. In these organizations, people go to slums and teach children. While doing that, it’s difficult for them to track the progress of the children they are teaching and teach them from the right resource. HelpEd helps these organizations to track the student’s progress as well as provides a pathway along with some assignments. Completion of which the students are assigned some levels.</p>
+          <p>There are a lot of NGOs and non-profitable organizations that work towards providing education to
+             unprivileged children. In these organizations, people go to slums and teach children. While doing that, 
+             it’s difficult for them to track the progress of the children they are teaching and teach them from the right resource. 
+             HelpEd helps these organizations to track the student’s progress as well as provides a pathway along with some assignments. 
+             Completion of which the students are assigned some levels.</p>
         </div>
         <div className="big-container" >
           <div className="heading">
             <h1>Our Vision</h1>
           </div>
+            <div className="vision-para">
+            <p>Our VIsion is to reach and support as many organizations as possible and make the process of educating 
+              underprivileged children easy for them. Soon in this website will be providing a resource section from where students will 
+              be able to see future career options for them according to their 
+              interest. And the website then will not only benefit the organizations but directly students too</p>
+            </div>
         </div>
       </main>
 
@@ -105,7 +115,7 @@ const Homepage: React.FC = () => {
 
         .childrenImage img{
           width: 100%;
-          height: 1000px;
+          height: 1000px;;
         }
 
         .image-text {
@@ -151,7 +161,8 @@ const Homepage: React.FC = () => {
 
         .big-container{
           background-color: rgba(30,103,126,0.7);
-          height: 300px;
+          height: 350px;
+          margin-bottom: 50px;
         }
 
         .heading{
@@ -161,7 +172,18 @@ const Homepage: React.FC = () => {
           padding: 3rem;
           font-size: 70px;
           font-weight: bold;
-          color: white;
+        }
+
+        .vision-para{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 30px;
+          margin-left: 400px;
+          margin-right: 400px;
+          line-height: 1.5;;
+          align-text: center;
+
         }
       `}</style>
     </div>

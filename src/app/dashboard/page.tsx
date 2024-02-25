@@ -244,7 +244,7 @@ const AddStudentModal: React.FC<AddStudentModalProps> = ({ isOpen, closeModal, h
       onChange={(e) => setStudentName(e.target.value)} 
       style={{ 
         background: 'transparent', 
-        color: 'black', 
+        color: 'white', 
         fontSize: '16px',
         border: '1px solid black',
         padding: '5px 10px',
@@ -260,7 +260,7 @@ const AddStudentModal: React.FC<AddStudentModalProps> = ({ isOpen, closeModal, h
       onChange={(e) => setLocationName(e.target.value)} 
       style={{ 
         background: 'transparent', 
-        color: 'black', 
+        color: 'white', 
         fontSize: '16px',
         border: '1px solid black',
         padding: '5px 10px',
@@ -276,7 +276,7 @@ const AddStudentModal: React.FC<AddStudentModalProps> = ({ isOpen, closeModal, h
       onChange={(e) => setAge(e.target.value)} 
       style={{ 
         background: 'transparent', 
-        color: 'black', 
+        color: 'white', 
         fontSize: '16px',
         border: '1px solid black',
         padding: '5px 10px',
@@ -292,7 +292,7 @@ const AddStudentModal: React.FC<AddStudentModalProps> = ({ isOpen, closeModal, h
       onChange={(e) => setLevel(e.target.value)} 
       style={{ 
         background: 'transparent', 
-        color: 'black', 
+        color: 'white', 
         fontSize: '16px',
         border: '1px solid black',
         padding: '5px 10px',
@@ -445,8 +445,8 @@ const Page: React.FC =() => {
   return (
     <div>
     <div style={{background: bgColor,paddingBottom:"20px"}}>
-    <div style={{ display: 'flex', justifyContent: 'justify-content', alignItems: 'center', padding: '10px' }}>
-    <div className='text-4xl text-white ml-20 mt-10' style= {{fontSize:"4rem"}}>Help<span style={{color:'#101D62', fontWeight: 'bold'}}>Ed</span></div>
+    <div style={{ display: 'flex', justifyContent: 'justify-content', alignItems: 'center'}}>
+    <div className='text-4xl text-white' style= {{fontSize:"4rem"}}>Help<span style={{color:'#101D62', fontWeight: 'bold'}}>Ed</span></div>
     <div style={{ textAlign: 'center', flex: '5',  marginLeft:"4rem"}}>
   {locations.length > 0 && (
    <select
@@ -546,7 +546,7 @@ const Page: React.FC =() => {
     </div>
     <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', marginLeft: 24, marginRight: 24 }}>
   {students.map((student: { studentId: string; name: string; age: number; level: number; Image: string }, index: number) => (
-    <div key={student.studentId} className="student-card" style={{ width: '150px', height: '400px', margin: '10px', border: '2px solid gray', borderRadius: "5%", boxShadow: "1px 1px 2px rgba(0,0,0,0.1)", display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', flex: '0 0 20%', position: 'relative' }}>
+    <div key={student.studentId} className="student-card" style={{ width: '150px', height: '400px', margin: '10px', borderRadius: "5%", backgroundColor:"rgba(0,0,0,0.1)", boxShadow: "1px 1px 2px rgba(0,0,0,0.1)", display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', flex: '0 0 20%', position: 'relative' }}>
       <div style={{ position: 'absolute', top: '0px', left: '3px', zIndex: 2, color: 'white', fontSize: '15px', fontWeight: 'bold', }}>
         {student.level}
       </div>
