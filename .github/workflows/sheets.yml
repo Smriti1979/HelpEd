@@ -1,10 +1,9 @@
 name: Update Google Sheet
 
 on:
-  push:
-    branches:
-      - main
-
+  workflow_dispatch:
+  schedule:
+      - cron: '0 0 * * *' 
 jobs:
   update-sheet:
     runs-on: ubuntu-latest
