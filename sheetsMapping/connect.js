@@ -3,6 +3,7 @@ const { google } = require('googleapis');
 const { v4: uuidv4 } = require('uuid');
 const base64Credentials = process.argv[2];
 const Mongo_url=process.argv[3];
+console.log(Mongo_url)
 const credentials = JSON.parse(Buffer.from(base64Credentials, 'base64').toString('utf-8'));
 const { Schema } = mongoose;
 
