@@ -1,5 +1,6 @@
 const { google } = require('googleapis');
-const base64Credentials = process.env.CREDENTIALS;
+const SPREADSHEET_ID = process.argv[2];
+const base64Credentials = process.argv[3];
 const credentials = JSON.parse(Buffer.from(base64Credentials, 'base64').toString('utf-8'));
 
 const auth = new google.auth.GoogleAuth({
@@ -44,10 +45,9 @@ const response = await fetch('http://localhost:3000/api/getStudentId', {
 async function getSheetValues() {
   try {
     const response = await sheets.spreadsheets.values.get({
-      spreadsheetId: process.env.SPREADSHEET_ID,
+      spreadsheetId: SPREADSHEET_ID,
       range: 'Sheet1!A2:D',
     });
-    console.log(process.env.spreadsheetId)
     const values = response.data.values;
 var i=0
     if (!values) {
