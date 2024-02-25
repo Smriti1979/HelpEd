@@ -166,7 +166,7 @@ const addStudentbyname = async (locationId, locationName, StudentName, StudentAg
         } else {
           const student = filteredStudents[0]; 
           editStudent(locationInfo.locationId,student.studentId,StudentName,StudentAge,StudentLevel)
-          return { status: 200, body: "Data edited" };
+          return { status: 201, body: "Data edited" };
         }
       
     } catch (err) {
@@ -206,7 +206,11 @@ async function getSheetValues() {
           detail.age,
           detail.level
         );
-        console.log(res.status)
+        if (res.status===200){
+          console.log(`${detail.name}'s data successfully added to the database`)
+        }else if(res.status===201){
+          console.log(`${detail.name}'s data successfully edited in the database`)
+        }
       };
     }
     setTimeout(() => {

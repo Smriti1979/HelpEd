@@ -78,8 +78,8 @@ const EditStudentModal: React.FC<{
           height: '500px',
           margin: 'auto',
           padding: '20px',
-          borderRadius: '10px',
-          border: '1px solid black',
+          borderRadius: '20px',
+
           background: '#fff',
           overflow: 'hidden',
         },
@@ -90,11 +90,24 @@ const EditStudentModal: React.FC<{
     >
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '50%', marginBottom: '0px' }}>
         <label htmlFor="imageInput">
-          <img
+        <div id="cont">
+        <div id="box">
+          <img className='border-gradient'
             src={studentImage||'/images/profile-white.svg'}
             alt="Student"
-            style={{ width: '150px', height: '150px', borderRadius: '50%', cursor: 'pointer' }}
+            style={{   width: '150px',
+            height: '150px',
+            borderRadius: '50%',
+            backgroundColor: 'rgba(255, 255, 255)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            textAlign: 'center',
+            objectFit: 'cover', 
+           }}
           />
+          </div>
+          </div>
           <input id="imageInput" type="file" accept="image/*" style={{ display: 'none' }} onChange={handleImageChange} />
         </label>
       </div>
@@ -155,20 +168,22 @@ const EditStudentModal: React.FC<{
           className="text-xl text-white"
           style={{
             transition: 'background-color 0.3s, padding 0.3s',
-            backgroundColor: 'rgba(0, 0, 0)',
-            padding: '10px 20px',
+            backgroundColor: 'rgba(0, 0, 0,0.5)',
+            padding: '5px 15px',
             border: 'none',
             borderRadius: '10px',
             marginTop: '10px',
           }}
           onMouseEnter={(e) => {
             const target = e.target as HTMLButtonElement;
-            target.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
+            target.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+            target.style.padding = '5px 20px';
+
           }}
           onMouseLeave={(e) => {
             const target = e.target as HTMLButtonElement;
-            target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
-            target.style.padding = '5px 10px';
+            target.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+            target.style.padding = '5px 15px';
           }}
         >
           Save
@@ -542,10 +557,10 @@ const Page: React.FC =() => {
         setLevel={setLevel}
       />
     </div>
-    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', marginLeft: 24, marginRight: 24 }}>
+    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', marginLeft: 24, marginRight: 24,marginTop:40 }}>
   {students.map((student: { studentId: string; name: string; age: number; level: number; Image: string }, index: number) => (
     <div key={student.studentId} className="student-card" style={{ width: '150px', height: '400px', margin: '10px', borderRadius: "5%", backgroundColor:"rgba(0,0,0,0.1)", boxShadow: "1px 1px 2px rgba(0,0,0,0.1)", display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', flex: '0 0 20%', position: 'relative' }}>
-      <div style={{ position: 'absolute', top: '0px', left: '3px', zIndex: 2, color: 'white', fontSize: '15px', fontWeight: 'bold', }}>
+      <div style={{ position: 'absolute', top: '0px', left: '3px', zIndex: 2, color: 'black', fontSize: '15px', fontWeight: 'bold', }}>
         {student.level}
       </div>
       <img src="/images/icons/star.svg" alt="star" style={{ position: 'absolute', top: '-40px', left: '-40px', zIndex: 1, width: "100px" }} />
@@ -583,7 +598,7 @@ const Page: React.FC =() => {
               alignItems: 'center',
               textAlign: 'center',
               objectFit: 'cover', 
-              
+
             }}
           />
         </div>
