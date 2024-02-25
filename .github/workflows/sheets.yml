@@ -34,4 +34,4 @@ jobs:
         timeout-minutes: 5
 
       - name: Run script
-        run: node ./sheetsMapping/connect.js
+        run: node ./sheetsMapping/connect.js ${{ secrets.SPREADSHEET_ID }} ${{ secrets.CREDENTIALS }}
