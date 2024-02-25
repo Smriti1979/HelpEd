@@ -79,8 +79,8 @@ const EditStudentModal: React.FC<{
           margin: 'auto',
           padding: '20px',
           borderRadius: '10px',
-          border: '1px solid rgb(42, 213, 197)',
-          background: 'linear-gradient(to bottom, rgb(42, 213, 197) 0%, rgb(9, 181, 235) 100%)',
+          border: '1px solid black',
+          background: '#fff',
           overflow: 'hidden',
         },
         overlay: {
@@ -110,9 +110,9 @@ const EditStudentModal: React.FC<{
             onChange={(e) => setStudentName(e.target.value)}
             style={{
               background: 'transparent',
-              color: 'white',
+              color: 'black',
               fontSize: '16px',
-              border: '1px solid white',
+              border: '1px solid black',
               padding: '5px 10px',
               transition: 'background 0.3s',
             }}
@@ -126,9 +126,9 @@ const EditStudentModal: React.FC<{
             onChange={(e) => setAge(e.target.value)}
             style={{
               background: 'transparent',
-              color: 'white',
+              color: 'black',
               fontSize: '16px',
-              border: '1px solid white',
+              border: '1px solid black',
               padding: '5px 10px',
               transition: 'background 0.3s',
             }}
@@ -142,9 +142,9 @@ const EditStudentModal: React.FC<{
             onChange={(e) => setLevel(e.target.value)}
             style={{
               background: 'transparent',
-              color: 'white',
+              color: 'black',
               fontSize: '16px',
-              border: '1px solid white',
+              border: '1px solid black',
               padding: '5px 10px',
               transition: 'background 0.3s',
             }}
@@ -155,9 +155,11 @@ const EditStudentModal: React.FC<{
           className="text-xl text-white"
           style={{
             transition: 'background-color 0.3s, padding 0.3s',
-            backgroundColor: 'rgba(0, 0, 0, 0.1)',
-            padding: '5px 10px',
+            backgroundColor: 'rgba(0, 0, 0)',
+            padding: '10px 20px',
             border: 'none',
+            borderRadius: '10px',
+            marginTop: '10px',
           }}
           onMouseEnter={(e) => {
             const target = e.target as HTMLButtonElement;
@@ -207,8 +209,8 @@ const AddStudentModal: React.FC<AddStudentModalProps> = ({ isOpen, closeModal, h
         margin: 'auto',
         padding: '20px',
         borderRadius: '10px',
-        border: '1px solid rgb(42, 213, 197)',
-        background: 'linear-gradient(to bottom, rgb(33, 160, 173) 20%, rgb(9, 181, 235) 100%',
+        border: '1px solid black',
+        background: '#1C708D',
         overflow: 'hidden',
       },
       overlay: {
@@ -242,9 +244,9 @@ const AddStudentModal: React.FC<AddStudentModalProps> = ({ isOpen, closeModal, h
       onChange={(e) => setStudentName(e.target.value)} 
       style={{ 
         background: 'transparent', 
-        color: 'white', 
+        color: 'black', 
         fontSize: '16px',
-        border: '1px solid white',
+        border: '1px solid black',
         padding: '5px 10px',
         transition: 'background 0.3s',
       }}
@@ -258,9 +260,9 @@ const AddStudentModal: React.FC<AddStudentModalProps> = ({ isOpen, closeModal, h
       onChange={(e) => setLocationName(e.target.value)} 
       style={{ 
         background: 'transparent', 
-        color: 'white', 
+        color: 'black', 
         fontSize: '16px',
-        border: '1px solid white',
+        border: '1px solid black',
         padding: '5px 10px',
         transition: 'background 0.3s',
       }}
@@ -274,9 +276,9 @@ const AddStudentModal: React.FC<AddStudentModalProps> = ({ isOpen, closeModal, h
       onChange={(e) => setAge(e.target.value)} 
       style={{ 
         background: 'transparent', 
-        color: 'white', 
+        color: 'black', 
         fontSize: '16px',
-        border: '1px solid white',
+        border: '1px solid black',
         padding: '5px 10px',
         transition: 'background 0.3s',
       }}
@@ -290,9 +292,9 @@ const AddStudentModal: React.FC<AddStudentModalProps> = ({ isOpen, closeModal, h
       onChange={(e) => setLevel(e.target.value)} 
       style={{ 
         background: 'transparent', 
-        color: 'white', 
+        color: 'black', 
         fontSize: '16px',
-        border: '1px solid white',
+        border: '1px solid black',
         padding: '5px 10px',
         transition: 'background 0.3s',
       }}
@@ -303,9 +305,12 @@ const AddStudentModal: React.FC<AddStudentModalProps> = ({ isOpen, closeModal, h
   className='text-xl text-white'
   style={{
     transition: 'background-color 0.3s, padding 0.3s',
-    backgroundColor: 'rgba(0, 0, 0, 0.1)',
-    padding: '5px 10px',
+    backgroundColor: 'rgba(0, 0, 0)',
+    padding: '10px 20px',
     border: 'none',
+    borderRadius: '10px',
+    marginTop: '5px',
+    marginBottom: '5px',
   }}
   onMouseEnter={(e) => {
     const target = e.target as HTMLButtonElement; 
@@ -449,7 +454,7 @@ const Page: React.FC =() => {
    onChange={handleLocationChange}
    style={{
      color: 'white',
-    //  backgroundColor: 'transparent',
+    backgroundColor: 'transparent',
      padding: '10px',
      borderRadius: '10px',
      border: '1px solid #000',
@@ -508,12 +513,12 @@ const Page: React.FC =() => {
   }}
   onMouseEnter={(e) => {
     const target = e.target as HTMLButtonElement;
-    target.style.backgroundColor = 'rgba(0, 0, 0,1 )'; 
+    target.style.backgroundColor = 'rgba(0, 0, 0,0.1 )'; 
     ; 
   }}
   onMouseLeave={(e) => {
     const target = e.target as HTMLButtonElement; 
-    target.style.backgroundColor = 'rgba(0, 0, 0, 1)';
+    target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
     target.style.padding = '10px 20px';
   }}
 >
