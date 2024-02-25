@@ -91,7 +91,7 @@ const EditStudentModal: React.FC<{
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '50%', marginBottom: '0px' }}>
         <label htmlFor="imageInput">
           <img
-            src={studentImage}
+            src={studentImage||'/images/profile-white.svg'}
             alt="Student"
             style={{ width: '150px', height: '150px', borderRadius: '50%', cursor: 'pointer' }}
           />
@@ -444,91 +444,89 @@ const Page: React.FC =() => {
   
   return (
     <div>
-    <div style={{background: bgColor,paddingBottom:"20px"}}>
-    <div style={{ display: 'flex', justifyContent: 'justify-content', alignItems: 'center'}}>
-    <div className='text-4xl text-white' style= {{fontSize:"4rem"}}>Help<span style={{color:'#101D62', fontWeight: 'bold'}}>Ed</span></div>
-    <div style={{ textAlign: 'center', flex: '5',  marginLeft:"4rem"}}>
-  {locations.length > 0 && (
-   <select
-   value={selectedLocationId || ''}
-   onChange={handleLocationChange}
-   style={{
-     color: 'white',
-    backgroundColor: 'transparent',
-     padding: '10px',
-     borderRadius: '10px',
-     border: '1px solid #000',
-     transition: '0.3s',
-     cursor:'pointer',
-     marginTop: "2rem"
-   }}
-   onMouseEnter={(e) => {
-     const target = e.target as HTMLSelectElement;
-     target.style.backgroundColor = 'rgba(0,0,0,0.8)'; 
-   }}
-   onMouseLeave={(e) => {
-     const target = e.target as HTMLSelectElement; 
-     target.style.backgroundColor = 'transparent';
-   }}
-   onFocus={(e) => {
-     const target = e.target as HTMLSelectElement;
-     target.style.backgroundColor = 'rgba(0,0,0,0.8)'; 
-   }}
-   onBlur={(e) => {
-     const target = e.target as HTMLSelectElement; 
-     target.style.backgroundColor = 'transparent';
-   }}
- >
-   <option value="" disabled hidden style={{ color: 'black' }}>Location</option>
-   {locations.map((location) => (
-     <option key={location.locationId} value={location.locationId}>
-       {location.locationName}
-     </option>
-   ))}
- </select>
- 
-  )}
-</div>
+    <div style={{ background: bgColor }}>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '10px' }}>
+        <div className='text-4xl text-white ' style={{ fontSize: "4rem", padding: '10px 0',marginLeft:'3rem' }}>
+          Help<span style={{ color: '#101D62', fontWeight: 'bold' }}>Ed</span>
+        </div>
+        <div style={{ textAlign: 'center', flex: '5', marginLeft: "4rem" }}>
+          {locations.length > 0 && (
+            <select
+              value={selectedLocationId || ''}
+              onChange={handleLocationChange}
+              style={{
+                color: 'white',
+                backgroundColor: 'transparent',
+                padding: '10px',
+                borderRadius: '10px',
+                border: '1px solid #000',
+                width:"300px",
+                textAlign:"center",
+                transition: '0.3s',
+                cursor: 'pointer',
+              }}
+              onMouseEnter={(e) => {
+                const target = e.target as HTMLSelectElement;
+                target.style.backgroundColor = 'rgba(0,0,0,0.8)';
+              }}
+              onMouseLeave={(e) => {
+                const target = e.target as HTMLSelectElement;
+                target.style.backgroundColor = 'transparent';
+              }}
+              onFocus={(e) => {
+                const target = e.target as HTMLSelectElement;
+                target.style.backgroundColor = 'rgba(0,0,0,0.8)';
+              }}
+              onBlur={(e) => {
+                const target = e.target as HTMLSelectElement;
+                target.style.backgroundColor = 'transparent';
+              }}
+            >
+              <option value="" disabled hidden style={{ color: 'black' }}>Location</option>
+              {locations.map((location) => (
+                <option key={location.locationId} value={location.locationId}>
+                  {location.locationName}
+                </option>
+              ))}
+            </select>
+          )}
+        </div>
+        <HomeButton />
+        <PathwaysButton />
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', flex: '1', padding: '10px' }}>
+          <button
+            onClick={openModal}
+            className='mr-14 text-white'
+            style={{
+              color: 'white',
+              backgroundColor: 'rgba(0,0,0,0.2)',
+              padding: '10px 20px',
+              border: 'none',
+              fontSize: "1.5rem",
+              display: 'flex',
+              justifyContent: 'center',
+              width: '300px',
+              borderRadius: '10px',
+              
+            }}
+            onMouseEnter={(e) => {
+              const target = e.target as HTMLButtonElement;
+              target.style.backgroundColor = 'rgba(0, 0, 0,0.6 )';
+            }}
+            onMouseLeave={(e) => {
+              const target = e.target as HTMLButtonElement;
+              target.style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
+              target.style.padding = '10px 20px';
+            }}
+          >
+            + Add Student
+          </button>
+          <SignOutButton />
+        </div>
+      </div>
 
-<HomeButton/>
 
-<PathwaysButton/>
-
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', flex: '1' }}>
-    <button
-  onClick={openModal}
-  className='mr-14 text-white'
-  style={{
-    color: 'black',
-    backgroundColor: 'rgba(0,0,0,0.1)',
-    padding: '10px 20px',
-    border: 'none',
-    marginTop: "2rem",
-    fontSize: "1.5rem",
-    display: 'flex',
-    justifyContent: 'center',
-    width: '300px',
-    borderRadius: '10px',
-    fontWeight: 'bold', 
-  }}
-  onMouseEnter={(e) => {
-    const target = e.target as HTMLButtonElement;
-    target.style.backgroundColor = 'rgba(0, 0, 0,0.1 )'; 
-    ; 
-  }}
-  onMouseLeave={(e) => {
-    const target = e.target as HTMLButtonElement; 
-    target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
-    target.style.padding = '10px 20px';
-  }}
->
-  + Add Student
-</button>
-      <SignOutButton />
-    </div>
-    </div>
   
-
 
       <AddStudentModal
         isOpen={isOpen}
@@ -552,7 +550,19 @@ const Page: React.FC =() => {
       </div>
       <img src="/images/icons/star.svg" alt="star" style={{ position: 'absolute', top: '-40px', left: '-40px', zIndex: 1, width: "100px" }} />
 
-      <button className="edit-button" style={{ position: 'absolute', top: '10px', right: '10px', background: 'transparent', border: 'none' }}
+      <button className="edit-button" style={{ 
+        position: 'absolute', top: '10px', right: '10px', background: 'transparent', border: 'none',backgroundColor: 'rgba(0,0,0,0.2)',
+        padding: '10px ',    borderRadius: '10px'
+      }}
+      onMouseEnter={(e) => {
+        const target = e.target as HTMLButtonElement;
+        target.style.backgroundColor = 'rgba(0, 0, 0, 0.6)';
+      }}
+      onMouseLeave={(e) => {
+        const target = e.target as HTMLButtonElement;
+        target.style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
+      }}
+
         onClick={() => openEditModal(student.studentId, student.Image, student.name, student.age.toString(), student.level.toString())}
       >
         <FaEdit />
@@ -560,15 +570,20 @@ const Page: React.FC =() => {
       <div id="cont">
         <div id="box">
           <img
-            src={student.Image}
+            src={student.Image||'/images/profile-white.svg'}
             className="border-gradient"
             alt="Placeholder"
             style={{
               width: '150px',
               height: '150px',
               borderRadius: '50%',
-              backgroundColor: 'rgba(0,0,0)',
-              display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: "center", objectFit: "fill"
+              backgroundColor: 'rgba(255, 255, 255)',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              textAlign: 'center',
+              objectFit: 'cover', 
+              
             }}
           />
         </div>

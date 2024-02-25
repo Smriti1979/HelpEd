@@ -209,6 +209,9 @@ async function getSheetValues() {
         console.log(res.status)
       };
     }
+    setTimeout(() => {
+      process.exit(0); 
+    }, 40000); 
   } catch (err) {
     console.error('The API returned an error:', err);
     return [];
