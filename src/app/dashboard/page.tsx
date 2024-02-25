@@ -368,7 +368,7 @@ const Page: React.FC =() => {
   
   return (
     <div>
-    <div style={{background: bgColor,marginBottom:"20px",paddingBottom:"50px"}}>
+    <div style={{background: bgColor,paddingBottom:"20px"}}>
     <div style={{ display: 'flex', justifyContent: 'justify-content', alignItems: 'center', padding: '10px' }}>
     <div className='text-4xl text-white ml-20 mt-10' style= {{fontSize:"4rem"}}>Help<span style={{color:'#101D62', fontWeight: 'bold'}}>Ed</span></div>
     <div style={{ textAlign: 'center', flex: '5',  marginLeft:"4rem"}}>

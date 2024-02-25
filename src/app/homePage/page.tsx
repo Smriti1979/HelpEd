@@ -44,15 +44,26 @@ const Homepage: React.FC = () => {
         <div className="image-text">Education is the most powerful weapon which you
           can use to change the world. - Nelson Mandela</div>
         </div>
-        <div className="problem">
-          <h1>The Problem</h1>
-          <div className="problem-img">
-            <img src="images\progess-img.jpg"></img>
-            <p>Keeping track of students progress</p>
-            <img src="images\resources.jpg"></img>
-            <p>Finding resources</p>
-          </div>
+        <div className="probcontainer">
+          <img src="images/theproblem.jpg"></img>
         </div>
+
+        <div className="solution">
+          <h1>The Solution</h1>
+        </div>
+        <div className="sol-para">
+        <p>There are a lot of NGOs and non-profitable organizations that work
+           towards providing education to unprivileged children. In these organization people go to slums and 
+           teach children. While doing that, it’s difficult for them to track progress of the children they are teaching and 
+           teaching them from right resource. HelpEd helps these organizations to track the student’s progress as well as provides a 
+           pathway along with some assignments. completion of which the student’s are assigned some levels.</p>
+        </div>
+      <div className="big-container" >
+        <div className="heading">
+         <h1>Our Vision</h1>
+        </div> 
+      </div>
+       
         
       </main>
 
@@ -138,6 +149,51 @@ const Homepage: React.FC = () => {
           text-align: center; 
           line-height: 1.5;
         }
+
+        .probcontainer img{
+          width: 100%;
+          height: 500px;
+          margin-top: 50px;
+        }
+
+        .solution{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 10px;
+          font-size: 70px;
+          font-weight: bold;
+          margin-top: 50px;
+        }
+        
+        .sol-para{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 30px;
+          margin-left: 400px;
+          margin-right: 400px;
+          line-height: 1.5;
+          margin-top: 50px;
+          margin-bottom: 50px;
+          align-text: center;
+        }
+
+        .big-container{
+          background-color: rgba(30,103,126,0.7);
+          height: 300px;
+        }
+
+        .heading{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 3rem;
+          font-size: 70px;
+          font-weight: bold;
+          color: white;
+        }
+
       `}</style>
     </div>
   
