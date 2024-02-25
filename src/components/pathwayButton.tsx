@@ -3,7 +3,7 @@ import Link from 'next/link';
 const PathwayButton: React.FC = () => {
   return (
     <Link href="/pathways">
-      <a className="text-xl text-white mr-12"
+      <p className="text-xl text-white mr-12"
         style={{
           transition: 'background-color 0.3s, padding 0.3s',
           color: 'black',
@@ -29,7 +29,7 @@ const PathwayButton: React.FC = () => {
         }}
       >
         Pathways
-      </a>
+      </p>
     </Link>
   );
 };

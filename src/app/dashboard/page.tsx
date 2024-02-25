@@ -540,53 +540,54 @@ const Page: React.FC =() => {
       />
     </div>
     <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around' ,marginLeft:24, marginRight:24 }}>
-  {students.map((student: { studentId: string; name: string; age: number; level:number;Image:string }, index: number) => (
-    <div key={student.studentId} className="student-card" style={{ width: '200px', height: '400px', margin: '10px', border: '2px solid black',borderRadius:"5%", boxShadow:"1px 1px 2px rgba(9, 181, 235, 0.6)",display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', flex: '0 0 20%', position: 'relative' }}>
-      <div style={{ position: 'absolute', top: '0px', left: '3px', zIndex: 2, color: 'white', fontSize: '15px', fontWeight: 'bold', }}>
-    {student.level}
-  </div>
-      <img src="/images/icons/star.svg" alt="star" style={{ position: 'absolute', top: '-40px', left: '-40px', zIndex: 1,width:"100px" }} />
-
-     <button className="edit-button" style={{ position: 'absolute', top: '10px', right: '10px', background: 'transparent', border: 'none' }}
-       onClick={() => openEditModal(student.studentId,student.Image,student.name,student.age.toString(),student.level.toString())}
->
-  <FaEdit />
-</button>
-<div id="cont">
-  <div id="box">
-  <img
-  src={student.Image}
-  className="border-gradient"
-  alt="Placeholder"
-  style={{
-    width: '150px',
-    height: '150px',
-    borderRadius: '50%',
-    backgroundColor: '#f0f0f0',
-    display: 'flex', justifyContent: 'center',alignItems: 'center',textAlign:"center",objectFit:"fill"
-  }}
-/>
-  </div>
-</div>
-      <p>
-        <span className="label" style={{ margin: 0 }}>Name:</span>
-        <span className="value" style={{ borderBottom: "2px dotted black", marginLeft: 20 }}>{student.name}</span>
-      </p>
-      <p>
-        <span className="label" style={{ margin: 0 }}>Age:</span>
-        <span className="value" style={{ marginLeft: 33, borderBottom: "2px dotted black" }}>{student.age}</span>
-      </p>
-      <p>
-        <span className="label" style={{ margin: 0 }}>Level:</span>
-        <span className="value" style={{ marginLeft: 33, borderBottom: "2px dotted black" }}>{student.level}</span>
-      </p>
+    {students.map((student: { studentId: string; name: string; age: number; level: number; Image: string }, index: number) => (
+  <div key={student.studentId} className="student-card" style={{ width: '200px', height: '400px', margin: '10px', border: '2px solid black', borderRadius: "5%", boxShadow: "1px 1px 2px rgba(9, 181, 235, 0.6)", display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', flex: '0 0 20%', position: 'relative' }}>
+    <div style={{ position: 'absolute', top: '0px', left: '3px', zIndex: 2, color: 'white', fontSize: '15px', fontWeight: 'bold', }}>
+      {student.level}
     </div>
-  )).reduce((rows, current, index) => {
-    const row = Math.floor(index / 4);
-    rows[row] = rows[row] || [];
-    rows[row].push(current);
-    return rows;
-  }, []).map(row => <div style={{ display: 'flex', justifyContent: 'space-around', width: '100%' }}>{row}</div>)}
+    <img src="/images/icons/star.svg" alt="star" style={{ position: 'absolute', top: '-40px', left: '-40px', zIndex: 1, width: "100px" }} />
+
+    <button className="edit-button" style={{ position: 'absolute', top: '10px', right: '10px', background: 'transparent', border: 'none' }}
+      onClick={() => openEditModal(student.studentId, student.Image, student.name, student.age.toString(), student.level.toString())}
+    >
+      <FaEdit />
+    </button>
+    <div id="cont">
+      <div id="box">
+        <img
+          src={student.Image}
+          className="border-gradient"
+          alt="Placeholder"
+          style={{
+            width: '150px',
+            height: '150px',
+            borderRadius: '50%',
+            backgroundColor: '#f0f0f0',
+            display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: "center", objectFit: "fill"
+          }}
+        />
+      </div>
+    </div>
+    <p>
+      <span className="label" style={{ margin: 0 }}>Name:</span>
+      <span className="value" style={{ borderBottom: "2px dotted black", marginLeft: 20 }}>{student.name}</span>
+    </p>
+    <p>
+      <span className="label" style={{ margin: 0 }}>Age:</span>
+      <span className="value" style={{ marginLeft: 33, borderBottom: "2px dotted black" }}>{student.age}</span>
+    </p>
+    <p>
+      <span className="label" style={{ margin: 0 }}>Level:</span>
+      <span className="value" style={{ marginLeft: 33, borderBottom: "2px dotted black" }}>{student.level}</span>
+    </p>
+  </div>
+)).reduce((rows: JSX.Element[][], current: JSX.Element, index: number) => {
+  const row = Math.floor(index / 4);
+  rows[row] = rows[row] || [];
+  rows[row].push(current);
+  return rows;
+}, []).map(row => <div style={{ display: 'flex', justifyContent: 'space-around', width: '100%' }}>{row}</div>)}
+
 </div>
 
 
