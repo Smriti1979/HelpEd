@@ -1,32 +1,26 @@
-name: Run Script
+name: Update Google Sheet
 
 on:
-  workflow_dispatch:
-  schedule:
-    - cron: '0 0 * * *' # Runs at 12 midnight every day
+  push:
+    branches:
+      - main
 
 jobs:
-  run-script:
+  update-sheet:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18.17.1'
+          node-version: '14'
 
       - name: Install dependencies
         run: npm install
 
-      - name: Start server
-        run: npm run dev &
-        env:
-          MONGO_URL: ${{ secrets.MONGO_URL }}
-          NEXTAUTH_URL: ${{ secrets.NEXTAUTH_URL }}
-          NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
-        timeout-minutes: 5
+      - name: Run script to update Google Sheet
+        run: node ./sheetsMapping/connect.js ${{ secrets.CREDENTIALS }} ${{ secrets.MONGO_URL }}
+      
 
-      - name: Run script
-        run: node ./sheetsMapping/connect.js ${{ secrets.CREDENTIALS }}
