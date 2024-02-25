@@ -1,1 +1,37 @@
+name: Run Script
 
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *' # Runs at 12 midnight every day
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    env:
+      SPREADSHEET_ID: ${{ secrets.SPREADSHEET_ID }}
+      CREDENTIALS: ${{ secrets.CREDENTIALS }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18.17.1'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Start server
+        run: npm run dev &
+        env:
+          MONGO_URL: ${{ secrets.MONGO_URL }}
+          NEXTAUTH_URL: ${{ secrets.NEXTAUTH_URL }}
+          NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
+        timeout-minutes: 5
+
+      - name: Run script
+        run: node ./sheetsMapping/connect.js
