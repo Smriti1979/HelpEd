@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Link from "next/link"
 import SignOutButton from '../../components/singout';
 import HomeButton from "@/components/homeButton";
-import PathwaysButton from '../../components/pathwayButton';
+import PathwaysButton from '../../components/dashboardButton';
 
 const Dashboard = () => {
   const [bgColor, setBgColor] = useState<string>('linear-gradient(to bottom, rgb(42, 213, 197) 0%,rgb(9, 181, 235)50%)');

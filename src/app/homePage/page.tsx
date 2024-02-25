@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from "next/link"
 import SignOutButton from '../../components/singout';
-import HomeButton from "@/components/homeButton";
+import HomeButton from "@/components/dashboardButton";
 import PathwaysButton from '../../components/pathwayButton';
 
 

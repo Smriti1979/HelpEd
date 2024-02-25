@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-import SignInPage from '../app/signIn/page';
+import Homepaage from '../app/homePage/page';
 export default function Home() {
   return (
-    <SignInPage/>
+    <Homepaage/>
   );
 }

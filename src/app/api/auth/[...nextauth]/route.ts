@@ -53,20 +53,7 @@ export const authOptions: any = {
     }),
     // // ...add more providers here
   ],
-  callbacks: {
-    async signIn(user: AuthUser, account: Account, profile:any) {
-      return true
-    },
-    async redirect(url:any, baseUrl:any) {
-      return baseUrl
-    },
-    async session(session:any, user: AuthUser) {
-      return session
-    },
-    async jwt(token:any, user: AuthUser, account: Account, profile:any, isNewUser:any) {
-      return token
-    }
-  }
+ 
 }
 const handler = NextAuth(authOptions)
 export { handler as GET, handler as POST, handler as PUT, handler as DELETE }
