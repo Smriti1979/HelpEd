@@ -444,91 +444,87 @@ const Page: React.FC =() => {
   
   return (
     <div>
-    <div style={{background: bgColor,paddingBottom:"20px"}}>
-    <div style={{ display: 'flex', justifyContent: 'justify-content', alignItems: 'center', padding: '10px' }}>
-    <div className='text-4xl text-white ml-20 mt-10' style= {{fontSize:"4rem"}}>Help<span style={{color:'#101D62', fontWeight: 'bold'}}>Ed</span></div>
-    <div style={{ textAlign: 'center', flex: '5',  marginLeft:"4rem"}}>
-  {locations.length > 0 && (
-   <select
-   value={selectedLocationId || ''}
-   onChange={handleLocationChange}
-   style={{
-     color: 'white',
-    backgroundColor: 'transparent',
-     padding: '10px',
-     borderRadius: '10px',
-     border: '1px solid #000',
-     transition: '0.3s',
-     cursor:'pointer',
-     marginTop: "2rem"
-   }}
-   onMouseEnter={(e) => {
-     const target = e.target as HTMLSelectElement;
-     target.style.backgroundColor = 'rgba(0,0,0,0.8)'; 
-   }}
-   onMouseLeave={(e) => {
-     const target = e.target as HTMLSelectElement; 
-     target.style.backgroundColor = 'transparent';
-   }}
-   onFocus={(e) => {
-     const target = e.target as HTMLSelectElement;
-     target.style.backgroundColor = 'rgba(0,0,0,0.8)'; 
-   }}
-   onBlur={(e) => {
-     const target = e.target as HTMLSelectElement; 
-     target.style.backgroundColor = 'transparent';
-   }}
- >
-   <option value="" disabled hidden style={{ color: 'black' }}>Location</option>
-   {locations.map((location) => (
-     <option key={location.locationId} value={location.locationId}>
-       {location.locationName}
-     </option>
-   ))}
- </select>
- 
-  )}
-</div>
+    <div style={{ background: bgColor }}>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '10px' }}>
+        <div className='text-4xl text-white ' style={{ fontSize: "4rem", padding: '10px 0',marginLeft:'3rem' }}>
+          Help<span style={{ color: '#101D62', fontWeight: 'bold' }}>Ed</span>
+        </div>
+        <div style={{ textAlign: 'center', flex: '5', marginLeft: "4rem" }}>
+          {locations.length > 0 && (
+            <select
+              value={selectedLocationId || ''}
+              onChange={handleLocationChange}
+              style={{
+                color: 'white',
+                backgroundColor: 'transparent',
+                padding: '10px',
+                borderRadius: '10px',
+                border: '1px solid #000',
+                transition: '0.3s',
+                cursor: 'pointer',
+              }}
+              onMouseEnter={(e) => {
+                const target = e.target as HTMLSelectElement;
+                target.style.backgroundColor = 'rgba(0,0,0,0.8)';
+              }}
+              onMouseLeave={(e) => {
+                const target = e.target as HTMLSelectElement;
+                target.style.backgroundColor = 'transparent';
+              }}
+              onFocus={(e) => {
+                const target = e.target as HTMLSelectElement;
+                target.style.backgroundColor = 'rgba(0,0,0,0.8)';
+              }}
+              onBlur={(e) => {
+                const target = e.target as HTMLSelectElement;
+                target.style.backgroundColor = 'transparent';
+              }}
+            >
+              <option value="" disabled hidden style={{ color: 'black' }}>Location</option>
+              {locations.map((location) => (
+                <option key={location.locationId} value={location.locationId}>
+                  {location.locationName}
+                </option>
+              ))}
+            </select>
+          )}
+        </div>
+        <HomeButton />
+        <PathwaysButton />
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', flex: '1', padding: '10px' }}>
+          <button
+            onClick={openModal}
+            className='mr-14 text-white'
+            style={{
+              color: 'black',
+              backgroundColor: 'rgba(0,0,0,0.1)',
+              padding: '10px 20px',
+              border: 'none',
+              fontSize: "1.5rem",
+              display: 'flex',
+              justifyContent: 'center',
+              width: '300px',
+              borderRadius: '10px',
+              fontWeight: 'bold',
+            }}
+            onMouseEnter={(e) => {
+              const target = e.target as HTMLButtonElement;
+              target.style.backgroundColor = 'rgba(0, 0, 0,0.1 )';
+            }}
+            onMouseLeave={(e) => {
+              const target = e.target as HTMLButtonElement;
+              target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
+              target.style.padding = '10px 20px';
+            }}
+          >
+            + Add Student
+          </button>
+          <SignOutButton />
+        </div>
+      </div>
 
-<HomeButton/>
 
-<PathwaysButton/>
-
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', flex: '1' }}>
-    <button
-  onClick={openModal}
-  className='mr-14 text-white'
-  style={{
-    color: 'black',
-    backgroundColor: 'rgba(0,0,0,0.1)',
-    padding: '10px 20px',
-    border: 'none',
-    marginTop: "2rem",
-    fontSize: "1.5rem",
-    display: 'flex',
-    justifyContent: 'center',
-    width: '300px',
-    borderRadius: '10px',
-    fontWeight: 'bold', 
-  }}
-  onMouseEnter={(e) => {
-    const target = e.target as HTMLButtonElement;
-    target.style.backgroundColor = 'rgba(0, 0, 0,0.1 )'; 
-    ; 
-  }}
-  onMouseLeave={(e) => {
-    const target = e.target as HTMLButtonElement; 
-    target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
-    target.style.padding = '10px 20px';
-  }}
->
-  + Add Student
-</button>
-      <SignOutButton />
-    </div>
-    </div>
   
-
 
       <AddStudentModal
         isOpen={isOpen}

@@ -10,7 +10,6 @@ const PathwayButton: React.FC = () => {
           backgroundColor: 'rgba(0,0,0,0.1)',
           padding: '10px 20px',
           border: 'none',
-          marginTop: "2rem",
           fontSize: "1.5rem",
           display: 'flex',
           justifyContent: 'center',

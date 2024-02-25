@@ -25,6 +25,7 @@ const Modal: React.FC<{ isVisible: boolean, text: string }> = ({ isVisible, text
   );
 };
 const Dashboard: React.FC = () => {
+  const [bgColor, setBgColor] = useState<string>('rgb(30,103,126)');
 
   const [hoveredButton, setHoveredButton] = useState<number | null>(null);
   const [modalText, setModalText] = useState<string>('');
@@ -41,34 +42,25 @@ const Dashboard: React.FC = () => {
 
   return (
     <div>
-    <div className="header">
-      <div style={{ display: 'flex', justifyContent: 'justify-content', alignItems: 'center' }}>
-      <div className='text-4xl text-white' style={{ fontSize: "4rem" }}>Help<span style={{ color: '#101D62', fontWeight: 'bold' }}>Ed</span></div>
-      <div className='text-4xl text-white ml-12' style={{
-        transition: 'background-color 0.3s, padding 0.3s',
-        backgroundColor: 'rgba(0, 0, 0, 0)',
-        padding: '5px 10px',
-        border: 'none',
-      }}
-        onMouseEnter={(e) => {
-          const target = e.target as HTMLButtonElement;
-          target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
-        }}
-        onMouseLeave={(e) => {
-          const target = e.target as HTMLButtonElement;
-          target.style.backgroundColor = 'rgba(0, 0, 0, 0)';
-        }} >
+    <div className="header" style={{padding:"1.25rem", background: bgColor }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div className='text-white' style={{ display: 'flex', alignItems: 'center', fontSize: "4rem", marginLeft: '2rem', padding: '10px ' }}>
+          Help<span style={{ color: '#101D62', fontWeight: 'bold' }}>Ed</span>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <div style={{ padding: '0 10px' }}>
+            <HomeButton />
+          </div>
+          <div style={{ padding: '0 10px' }}>
+            <PathwaysButton />
+          </div>
+          <div style={{ marginRight: "2rem", padding: '0 10px' }}>
+            <SignOutButton />
+          </div>
+        </div>
       </div>
-      <div style={{ marginLeft:'1200px'}}>
-      <HomeButton />
-      </div>
-      <div style={{ marginLeft:'10px'}}>
-      <PathwaysButton />
-      </div>
-      <div style={{ marginLeft:'100px'}}>
-        <SignOutButton />
-      </div>
-    </div>
+   
+  
   </div>
       <main style={{ display: 'flex', justifyContent: 'space-around', marginTop: '4rem' }}>
 
