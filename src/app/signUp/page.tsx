@@ -176,7 +176,7 @@ const SignupPage = () => {
 
       </form>
       <div className='text-center text-gray-500'>- OR -</div>
-      <h3 className="text-center text-xl font-bold my-4 text-black">Login with an  <Link className='text-blue-500 hover:underline' href="/">EXISTING ACCOUNT</Link> </h3>
+      <h3 className="text-center text-xl font-bold my-4 text-black">Login with an  <Link className='text-blue-500 hover:underline' href="/signIn">EXISTING ACCOUNT</Link> </h3>
     </div>
     </div>
   );
