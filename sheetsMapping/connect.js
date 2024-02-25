@@ -48,7 +48,7 @@ async function getSheetValues() {
       range: 'Sheet1!A2:D',
     });
     const values = response.data.values;
-var i=0
+    console.log(values)
     if (!values) {
       console.log('No data found.');
       return [];
