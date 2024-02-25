@@ -550,7 +550,19 @@ const Page: React.FC =() => {
       </div>
       <img src="/images/icons/star.svg" alt="star" style={{ position: 'absolute', top: '-40px', left: '-40px', zIndex: 1, width: "100px" }} />
 
-      <button className="edit-button" style={{ position: 'absolute', top: '10px', right: '10px', background: 'transparent', border: 'none' }}
+      <button className="edit-button" style={{ 
+        position: 'absolute', top: '10px', right: '10px', background: 'transparent', border: 'none',backgroundColor: 'rgba(0,0,0,0.2)',
+        padding: '10px ',    borderRadius: '10px'
+      }}
+      onMouseEnter={(e) => {
+        const target = e.target as HTMLButtonElement;
+        target.style.backgroundColor = 'rgba(0, 0, 0, 0.6)';
+      }}
+      onMouseLeave={(e) => {
+        const target = e.target as HTMLButtonElement;
+        target.style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
+      }}
+
         onClick={() => openEditModal(student.studentId, student.Image, student.name, student.age.toString(), student.level.toString())}
       >
         <FaEdit />
